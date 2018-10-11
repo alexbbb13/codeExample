@@ -5,6 +5,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.ftb.test.ftb_test.data.models.Data
+import com.ftb.test.ftb_test.data.room.matches.MatchesBaseDb
+import com.ftb.test.ftb_test.presenters.MatchesPresenter
 import com.ftb.test.ftb_test.ui.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_matches.*
@@ -21,7 +23,6 @@ class MatchesFragment: BaseFragment(), MatchesView {
     @ProvidePresenter(type = PresenterType.LOCAL)
     fun providePresenter(): MatchesPresenter {
         val presenter = presenterProvider.get()
-        //presenter.with(arguments!!.getParcelable<Arguments>(ARGUMENTS).id)
         return presenter
     }
 
@@ -30,9 +31,7 @@ class MatchesFragment: BaseFragment(), MatchesView {
         AndroidSupportInjection.inject(this)
     }
 
-
-
-    override fun setData(items: List<Data>) {
+    override fun setData(items: List<MatchesBaseDb>) {
         rv_container.adapter.setData(items)
     }
 }

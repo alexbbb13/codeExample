@@ -1,8 +1,9 @@
 package com.ftb.test.ftb_test.interactors
 
-import com.ftb.test.ftb_test.data.models.MatchBase
+import com.ftb.test.ftb_test.data.room.matches.MatchesBaseDb
 import io.reactivex.Observable
 
 interface MatchesInteractor {
-    fun getMatches(): Observable<List<MatchBase>>
+    fun getMatches(): Observable<List<MatchesBaseDb>>
+    fun updateData(matches: List<MatchesBaseDb>)
 }
