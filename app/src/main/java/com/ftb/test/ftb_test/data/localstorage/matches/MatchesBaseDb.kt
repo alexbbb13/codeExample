@@ -1,4 +1,4 @@
-package com.ftb.test.ftb_test.data.room.matches
+package com.ftb.test.ftb_test.data.localstorage.matches
 
 import android.arch.persistence.room.Entity
 import com.ftb.test.ftb_test.data.models.Constants

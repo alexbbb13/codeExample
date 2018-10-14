@@ -1,7 +1,6 @@
-package com.ftb.test.ftb_test.data.room.matches
+package com.ftb.test.ftb_test.data.localstorage.matches
 
 import android.arch.persistence.room.*
-import io.reactivex.Maybe
 import io.reactivex.Single
 
 @Dao

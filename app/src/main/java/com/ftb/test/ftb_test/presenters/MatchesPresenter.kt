@@ -2,7 +2,7 @@ package com.ftb.test.ftb_test.presenters
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
-import com.ftb.test.ftb_test.data.room.matches.MatchesBaseDb
+import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
 import com.ftb.test.ftb_test.ui.matches.MatchesView
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -29,7 +29,7 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPrese
     }
 
     public fun onMatchClick(match: MatchesBaseDb){
-        viewState.openPredictionDialog(match)
+        //viewState.openPredictionDialog(match)
     }
 
     public fun onPredictionCompletedClick(match: MatchesBaseDb, score1: Int, score2: Int){

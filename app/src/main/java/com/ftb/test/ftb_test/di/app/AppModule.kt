@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room
 import android.content.Context
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.ftb.test.ftb_test.data.room.app.AppRoomDatabase
+import com.ftb.test.ftb_test.data.localstorage.app.AppRoomDatabase
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides

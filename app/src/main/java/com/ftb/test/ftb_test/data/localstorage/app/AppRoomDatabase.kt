@@ -1,11 +1,11 @@
-package com.ftb.test.ftb_test.data.room.app
+package com.ftb.test.ftb_test.data.localstorage.app
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
-import com.ftb.test.ftb_test.data.room.matches.MatchesBaseDb
-import com.ftb.test.ftb_test.data.room.matches.MatchesDao
-import com.ftb.test.ftb_test.data.room.results.ResultsBaseDb
-import com.ftb.test.ftb_test.data.room.results.ResultsDao
+import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
+import com.ftb.test.ftb_test.data.localstorage.matches.MatchesDao
+import com.ftb.test.ftb_test.data.localstorage.results.ResultsBaseDb
+import com.ftb.test.ftb_test.data.localstorage.results.ResultsDao
 
 @Database(entities = [
     MatchesBaseDb::class,

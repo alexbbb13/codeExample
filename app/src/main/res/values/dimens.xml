@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="list_item_height">56dp</dimen>
+    <dimen name="list_item_padding">8dp</dimen>
+    <dimen name="list_item_left_right_margin">16dp</dimen>
+    <dimen name="app_font_medium">20sp</dimen>
+    <dimen name="app_font_small">16sp</dimen>
+</resources>

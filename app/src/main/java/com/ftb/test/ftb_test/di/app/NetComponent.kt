@@ -5,8 +5,9 @@ import dagger.Component
 import ru.terrakok.cicerone.Cicerone
 import javax.inject.Singleton
 
-@Component(modules = [(CiceroneModule::class)])
 @Singleton
-interface CiceroneComponent {
-    fun getCicerone(): Cicerone<AppRouter>
+@Component(modules = arrayOf(NetModule::class))
+interface NetComponent {
+    fun getNetComponent:
+
 }

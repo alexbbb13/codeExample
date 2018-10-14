@@ -1,8 +1,6 @@
-package com.ftb.test.ftb_test.data.room.results
+package com.ftb.test.ftb_test.data.localstorage.results
 
 import android.arch.persistence.room.*
-import com.ftb.test.ftb_test.data.room.results.ResultsBaseDb
-import io.reactivex.Maybe
 import io.reactivex.Single
 
 @Dao
