@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import com.ftb.test.ftb_test.extra.extraKey
 import com.ftb.test.ftb_test.ui.matches.MatchesFragment
+import com.ftb.test.ftb_test.ui.results.ResultsFragment
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.android.SupportAppNavigator
 import ru.terrakok.cicerone.android.SupportFragmentNavigator

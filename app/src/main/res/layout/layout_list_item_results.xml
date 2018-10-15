@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/list_item_padding">
+
+    <TextView
+        android:id="@+id/tv_team1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:textSize="@dimen/app_font_medium"
+        app:layout_constraintRight_toLeftOf="@id/tv_dash"
+        tools:text="Real Madrid" />
+
+    <TextView
+        android:id="@+id/tv_dash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dash"
+        android:textSize="@dimen/app_font_medium"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="@string/dash" />
+
+    <TextView
+        android:id="@+id/tv_team2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/app_font_medium"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        app:layout_constraintLeft_toRightOf="@id/tv_dash"
+        tools:text="Spartak Moskva" />
+
+    <TextView
+        android:id="@+id/tv_score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_team2"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:textSize="@dimen/app_font_big"
+        app:layout_constraintRight_toLeftOf="@id/tv_dash_lower"
+        tools:text="5" />
+
+    <TextView
+        android:id="@+id/tv_dash_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_score1"
+        android:text="@string/dash"
+        android:textSize="@dimen/app_font_big"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="@string/dash" />
+
+    <TextView
+        android:id="@+id/tv_score2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/app_font_big"
+        app:layout_constraintTop_toTopOf="@id/tv_score1"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        app:layout_constraintLeft_toRightOf="@id/tv_dash_lower"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/tv_predicted_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_score1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text =  "Predicted score"
+        />
+
+    <TextView
+        android:id="@+id/tv_prediction1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_predicted_title"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        android:textSize="@dimen/app_font_small"
+        app:layout_constraintRight_toLeftOf="@id/tv_dash_lower"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tv_dash_lower"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_prediction1"
+        android:text="@string/dash"
+        android:textSize="@dimen/app_font_small"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="@string/dash" />
+
+    <TextView
+        android:id="@+id/tv_prediction2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/app_font_small"
+        app:layout_constraintTop_toTopOf="@id/tv_prediction1"
+        android:layout_marginLeft="@dimen/list_item_left_right_margin"
+        android:layout_marginRight="@dimen/list_item_left_right_margin"
+        app:layout_constraintLeft_toRightOf="@id/tv_dash_lower"
+        tools:text="2" />
+
+</android.support.constraint.ConstraintLayout>

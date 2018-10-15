@@ -1,4 +1,4 @@
-package com.ftb.test.ftb_test.ui.matches
+package com.ftb.test.ftb_test.ui.results
 
 import android.content.Context
 import android.os.Bundle
@@ -10,23 +10,22 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.ftb.test.ftb_test.R
-import com.ftb.test.ftb_test.data.models.MatchesBase
-import com.ftb.test.ftb_test.presenters.MatchesPresenter
+import com.ftb.test.ftb_test.data.models.ResultBase
 import com.ftb.test.ftb_test.ui.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import javax.inject.Inject
 import javax.inject.Provider
 
-class MatchesFragment: BaseFragment(), MatchesView {
+class ResultsFragment: BaseFragment(), ResultsView {
     @Inject
-    lateinit var presenterProvider: Provider<MatchesPresenter>
+    lateinit var presenterProvider: Provider<ResultsPresenter>
 
     @InjectPresenter(type = PresenterType.LOCAL)
-    lateinit var presenter: MatchesPresenter
+    lateinit var presenter: ResultsPresenter
 
     @ProvidePresenter(type = PresenterType.LOCAL)
-    fun providePresenter(): MatchesPresenter {
+    fun providePresenter(): ResultsPresenter {
         val presenter = presenterProvider.get()
         return presenter
     }
@@ -38,12 +37,12 @@ class MatchesFragment: BaseFragment(), MatchesView {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_recyclerview, container, false)
-        recycler_view.adapter = MatchesAdapter()
+        recycler_view.adapter = ResultsAdapter()
         recycler_view.layoutManager = LinearLayoutManager(context)
         return root
     }
 
-    override fun setData(items: List<MatchesBase>) {
-        (recycler_view.adapter as MatchesAdapter).setData(items)
+    override fun setData(items: List<ResultBase>) {
+        (recycler_view.adapter as ResultsAdapter).setData(items)
     }
 }
