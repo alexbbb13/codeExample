@@ -11,6 +11,7 @@ import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
+import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.presenters.MatchesPresenter
 import com.ftb.test.ftb_test.ui.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection
@@ -43,7 +44,7 @@ class MatchesFragment: BaseFragment(), MatchesView {
         return root
     }
 
-    override fun setData(items: List<MatchesBaseDb>) {
+    override fun setData(items: List<MatchesBase>) {
         (recycler_view.adapter as MatchesAdapter).setData(items)
     }
 }

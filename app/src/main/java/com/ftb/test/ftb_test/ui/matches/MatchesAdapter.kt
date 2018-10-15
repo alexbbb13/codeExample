@@ -7,6 +7,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
+import com.ftb.test.ftb_test.data.models.MatchesBase
 
 class MatchesAdapter() :
         RecyclerView.Adapter<MatchesAdapter.ViewHolder>() {
@@ -15,7 +16,7 @@ class MatchesAdapter() :
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
-    private lateinit var myDataset: List<MatchesBaseDb>
+    private lateinit var myDataset: List<MatchesBase>
 
     class ViewHolder(val relativeLayout: RelativeLayout,
                      val team1: TextView,
@@ -48,14 +49,14 @@ class MatchesAdapter() :
         val item  = myDataset[position]
         holder.team1.text = item.team1
         holder.team2.text = item.team2
-        setText(holder.prediction1, item.predictionTeam1)
-        setText(holder.prediction2, item.predictionTeam2)
+        setText(holder.prediction1, item.team1_prediction)
+        setText(holder.prediction2, item.team2_prediction)
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = myDataset.size
 
-    fun setData (data: List<MatchesBaseDb>){
+    fun setData (data: List<MatchesBase>){
         myDataset = data
     }
 

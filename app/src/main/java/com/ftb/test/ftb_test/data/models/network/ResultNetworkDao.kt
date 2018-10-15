@@ -1,4 +1,4 @@
-package com.ftb.test.ftb_test.data.models
+package com.ftb.test.ftb_test.data.models.network
 
 data class ResultNetworkDao(
         val team1: String,

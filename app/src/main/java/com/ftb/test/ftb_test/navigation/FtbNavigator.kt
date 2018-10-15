@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import com.ftb.test.ftb_test.extra.extraKey
+import com.ftb.test.ftb_test.ui.matches.MatchesFragment
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.android.SupportAppNavigator
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
@@ -11,6 +12,11 @@ import ru.terrakok.cicerone.commands.Command
 import java.lang.RuntimeException
 
 open class FtbNavigator(val activity: FragmentActivity, private val containerId: Int): SupportAppNavigator(activity, containerId) {
+
+    override fun createActivityIntent(screenKey: String?, data: Any?): Intent {
+        return Intent()
+    }
+
     companion object {
         val MATCHES by extraKey()
         val RESULTS by extraKey()
@@ -23,9 +29,5 @@ open class FtbNavigator(val activity: FragmentActivity, private val containerId:
                 throw RuntimeException("Key $screenKey is not valid")
             }
         }
-    }
-
-    override fun createActivityIntent(screenKey: String?, data: Any?): Intent {
-        return null;
     }
 }

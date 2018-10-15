@@ -7,3 +7,6 @@ annotation class ApplicationScope
 
 @Qualifier
 annotation class ActivityScope
+
+@Qualifier
+annotation class ApplicationContext

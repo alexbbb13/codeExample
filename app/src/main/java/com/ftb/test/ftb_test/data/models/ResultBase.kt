@@ -1,5 +1,7 @@
 package com.ftb.test.ftb_test.data.models
 
+import com.ftb.test.ftb_test.data.models.network.ResultNetworkDao
+
 class ResultBase(
         val team1: String,
         val team2: String,
