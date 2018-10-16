@@ -1,47 +1,48 @@
 package com.ftb.test.ftb_test.di.app
 
-import com.journaldev.dagger2retrofitrecyclerview.di.scopes.ApplicationScope;
-import com.journaldev.dagger2retrofitrecyclerview.retrofit.APIInterface;
-
-import dagger.Module;
-import dagger.Provides;
-import okhttp3.OkHttpClient;
-import okhttp3.logging.HttpLoggingInterceptor;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import com.ftb.test.ftb_test.data.remotestorage.MatchesApi
+import dagger.Module
+import dagger.Provides
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-public class RetrofitModule {
+class RetrofitModule {
 
     @Provides
     @ApplicationScope
-    APIInterface getApiInterface(Retrofit retroFit): APIInterface {
-        return retroFit.create(APIInterface.class);
+    fun getApiInterface(retroFit: Retrofit): MatchesApi {
+        return retroFit.create(MatchesApi::class.java)
     }
 
     @Provides
     @ApplicationScope
-    Retrofit getRetrofit(OkHttpClient okHttpClient) {
+    fun getRetrofit(okHttpClient: OkHttpClient): Retrofit  {
         return Retrofit.Builder()
                 .baseUrl("https://swapi.co/api/")
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
-                .build();
+                .build()
     }
 
     @Provides
     @ApplicationScope
-    OkHttpClient getOkHttpCleint(HttpLoggingInterceptor httpLoggingInterceptor) {
-        return new OkHttpClient.Builder()
+    fun getOkHttpCleint(httpLoggingInterceptor: HttpLoggingInterceptor): OkHttpClient  {
+        return OkHttpClient.Builder()
                 .addInterceptor(httpLoggingInterceptor)
-                .build();
+                .build()
     }
 
     @Provides
     @ApplicationScope
-    HttpLoggingInterceptor getHttpLoggingInterceptor() {
-        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+    fun getHttpLoggingInterceptor(): HttpLoggingInterceptor {
+        val httpLoggingInterceptor = HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         return httpLoggingInterceptor;
     }
 }
+

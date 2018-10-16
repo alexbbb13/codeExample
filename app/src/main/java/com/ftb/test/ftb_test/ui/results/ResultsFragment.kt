@@ -11,6 +11,7 @@ import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.data.models.ResultBase
+import com.ftb.test.ftb_test.presenters.ResultsPresenter
 import com.ftb.test.ftb_test.ui.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_recyclerview.*

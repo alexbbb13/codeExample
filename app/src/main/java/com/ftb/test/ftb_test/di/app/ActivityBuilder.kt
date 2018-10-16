@@ -1,6 +1,10 @@
 package com.ftb.test.ftb_test.di.app
 
+import android.app.LauncherActivity
 import dagger.Module
+import dagger.android.ContributesAndroidInjector
+
+
 
 @Module
 abstract class ActivityBuilder {
@@ -14,5 +18,8 @@ abstract class ActivityBuilder {
      * @ContributesAndroidInjector(modules = [NameModule::class])
      * abstract fun bindNameActivity(): NameActivity
      * */
+
+    @ContributesAndroidInjector(modules = arrayOf())
+    internal abstract fun contributeLauncherActivityInjector(): LauncherActivity
 
 }

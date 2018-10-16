@@ -3,6 +3,7 @@ package com.ftb.test.ftb_test.di.app
 import com.ftb.test.ftb_test.di.matches.MatchesScreenModule
 import com.ftb.test.ftb_test.di.results.ResultsScreenModule
 import com.ftb.test.ftb_test.ui.matches.MatchesFragment
+import com.ftb.test.ftb_test.ui.results.ResultsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -16,8 +17,8 @@ internal abstract class FragmentBuilder {
 
 
     @ContributesAndroidInjector(modules = [MatchesScreenModule::class])
-    abstract fun bindSkbProductFragment(): MatchesFragment
+    abstract fun bindMatchesFragment(): MatchesFragment
 
-//    @ContributesAndroidInjector(modules = [ResultsScreenModule::class])
-//    abstract fun bindTransferChoiceFragment(): ResultsFragment
+    @ContributesAndroidInjector(modules = [ResultsScreenModule::class])
+    abstract fun bindResultsFragment(): ResultsFragment
 }

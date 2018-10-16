@@ -1,0 +1,113 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "3d77ed4c53876eebda01a81ebe86d990",
+    "entities": [
+      {
+        "tableName": "MatchesBase",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`team1` TEXT NOT NULL, `team2` TEXT NOT NULL, `matchHash` INTEGER NOT NULL, `predictionTeam1` INTEGER NOT NULL, `predictionTeam2` INTEGER NOT NULL, PRIMARY KEY(`matchHash`))",
+        "fields": [
+          {
+            "fieldPath": "team1",
+            "columnName": "team1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "team2",
+            "columnName": "team2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "matchHash",
+            "columnName": "matchHash",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "predictionTeam1",
+            "columnName": "predictionTeam1",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "predictionTeam2",
+            "columnName": "predictionTeam2",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "matchHash"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ResultsBase",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`team1` TEXT NOT NULL, `team2` TEXT NOT NULL, `matchHash` INTEGER NOT NULL, `team1points` INTEGER NOT NULL, `team2points` INTEGER NOT NULL, `team1prediction` INTEGER NOT NULL, `team2prediction` INTEGER NOT NULL, PRIMARY KEY(`matchHash`))",
+        "fields": [
+          {
+            "fieldPath": "team1",
+            "columnName": "team1",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "team2",
+            "columnName": "team2",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "matchHash",
+            "columnName": "matchHash",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "team1points",
+            "columnName": "team1points",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "team2points",
+            "columnName": "team2points",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "team1prediction",
+            "columnName": "team1prediction",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "team2prediction",
+            "columnName": "team2prediction",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "matchHash"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"3d77ed4c53876eebda01a81ebe86d990\")"
+    ]
+  }
+}

@@ -10,6 +10,7 @@ import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.application.FtbApplication
 import com.ftb.test.ftb_test.extra.extraKey
 import com.ftb.test.ftb_test.navigation.FtbNavigator
+import dagger.android.AndroidInjection
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
@@ -40,6 +41,7 @@ class LauncherActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        AndroidInjection.inject(this)
         setContentView(R.layout.activity_fragment_container)
         if (savedInstanceState == null) {
             initiateFragment()

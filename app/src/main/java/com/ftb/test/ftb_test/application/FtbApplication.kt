@@ -26,11 +26,11 @@ class FtbApplication  : Application(),
     override fun onCreate() {
         super.onCreate()
 
-        DaggerAppComponent
-                .builder()
-                .application(this)
-                .build()
-                .inject(this)
+//        DaggerAppComponent
+//                .builder()
+//                .application(this)
+//                .build()
+//                .inject(this)
 
 
         // ловим недоставленные ошибки после очистки CompositeDisposable

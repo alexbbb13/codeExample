@@ -10,8 +10,8 @@ import com.ftb.test.ftb_test.data.localstorage.results.ResultsDao
 @Database(entities = [
     MatchesBaseDb::class,
     ResultsBaseDb::class
-], version = 1)
+], version = 2)
 abstract class AppRoomDatabase : RoomDatabase() {
     abstract fun getMatchesDao(): MatchesDao
-    abstract fun getresultsDao(): ResultsDao
+    abstract fun getResultsDao(): ResultsDao
 }
