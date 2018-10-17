@@ -1,6 +1,7 @@
 package com.ftb.test.ftb_test.di.app
 
 import android.app.LauncherActivity
+import com.ftb.test.ftb_test.di.matches.MatchesScreenModule
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -19,7 +20,7 @@ abstract class ActivityBuilder {
      * abstract fun bindNameActivity(): NameActivity
      * */
 
-    @ContributesAndroidInjector(modules = arrayOf())
-    internal abstract fun contributeLauncherActivityInjector(): LauncherActivity
+    @ContributesAndroidInjector(modules = [MatchesScreenModule::class])
+    abstract fun contributeLauncherActivityInjector(): LauncherActivity
 
 }

@@ -11,13 +11,14 @@ import com.ftb.test.ftb_test.application.FtbApplication
 import com.ftb.test.ftb_test.extra.extraKey
 import com.ftb.test.ftb_test.navigation.FtbNavigator
 import dagger.android.AndroidInjection
+import dagger.android.support.DaggerAppCompatActivity
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
 import java.lang.System.exit
 import javax.inject.Inject
 
-class LauncherActivity : AppCompatActivity() {
+class LauncherActivity : DaggerAppCompatActivity() {
     companion object {
         private const val FRAGMENT_CONTAINER_ID = R.id.fragment_container
         private val NAVIGATOR_KEY by extraKey()
@@ -40,8 +41,8 @@ class LauncherActivity : AppCompatActivity() {
     private val navigator by lazy(LazyThreadSafetyMode.NONE) { FtbNavigator(this, FRAGMENT_CONTAINER_ID) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this) //before calling super!!!!!!!!!!!!!
         super.onCreate(savedInstanceState)
-        AndroidInjection.inject(this)
         setContentView(R.layout.activity_fragment_container)
         if (savedInstanceState == null) {
             initiateFragment()

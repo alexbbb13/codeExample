@@ -19,16 +19,6 @@ import io.reactivex.Single
 class MatchesScreenModule {
 
     @Provides
-    fun provideMatchesRepository(remoteStorage: MatchesRemoteStorage,
-                                 localStorage: MatchesLocalStorage) : MatchesRepository = MatchesRepositoryImpl(remoteStorage, localStorage)
-
-    @Provides
-    fun provideMatchesRemoteStorage(api: MatchesApi) : MatchesRemoteStorage = MatchesRemoteStorageImpl(api)
-
-    @Provides
-    fun provideMatchesLocalStorage(db: Single<AppRoomDatabase>) : MatchesLocalStorage = MatchesLocalStorageImpl(db)
-
-    @Provides
     fun provideMatchesPresenter(interactor: MatchesInteractor): MatchesPresenter = MatchesPresenter(interactor)
 
     @Provides

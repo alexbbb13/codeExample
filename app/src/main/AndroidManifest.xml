@@ -3,7 +3,7 @@
     package="com.ftb.test.ftb_test">
 
     <application
-        android:name="com.ft"
+        android:name="com.ftb.test.ftb_test.application.FtbApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

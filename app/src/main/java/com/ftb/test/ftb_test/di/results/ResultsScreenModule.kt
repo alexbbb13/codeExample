@@ -13,11 +13,6 @@ import dagger.Provides
 @Module
 class ResultsScreenModule {
 
-
-    @Provides
-    fun provideResultsRepository(remoteStorage: ResultsRemoteStorage,
-                                 localStorage: ResultsLocalStorage): ResultsRepository = ResultsRepositoryImpl(remoteStorage, localStorage)
-
     @Provides
     fun provideResultsPresenter(interactor: ResultsInteractor): ResultsPresenter = ResultsPresenter(interactor)
 
