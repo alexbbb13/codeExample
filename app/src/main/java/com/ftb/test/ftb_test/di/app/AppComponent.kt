@@ -12,7 +12,9 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
+
     AppModule::class,
+    MyApplicationModule::class,
 //    ExecutorsModule::class,
     NetworkModule::class,
     ActivityBuilder::class,
@@ -26,10 +28,11 @@ import javax.inject.Singleton
     CiceroneModule::class,
     //RetrofitModule::class,
     ActivityBuilder::class,
-    AndroidInjectionModule::class,
-    AndroidSupportInjectionModule::class
+    AndroidSupportInjectionModule::class,
+            AndroidInjectionModule::class
+
 ])
-interface AppComponent : AndroidInjector<FtbApplication> {
+interface MyApplicationComponent : AndroidInjector<FtbApplication> {
 
 //    @Component.Builder
 //    abstract class Builder : AndroidInjector.Builder<FtbApplication>()
@@ -39,6 +42,6 @@ interface AppComponent : AndroidInjector<FtbApplication> {
         @BindsInstance
         fun application(application: Application): Builder
 
-        fun build(): AppComponent
+        fun build(): MyApplicationComponent
     }
 }

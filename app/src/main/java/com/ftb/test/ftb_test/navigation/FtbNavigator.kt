@@ -3,18 +3,28 @@ package com.ftb.test.ftb_test.navigation
 import android.content.Intent
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
 import com.ftb.test.ftb_test.extra.extraKey
 import com.ftb.test.ftb_test.ui.matches.MatchesFragment
 import com.ftb.test.ftb_test.ui.results.ResultsFragment
 import ru.terrakok.cicerone.android.SupportAppNavigator
+import ru.terrakok.cicerone.android.SupportFragmentNavigator
 import ru.terrakok.cicerone.commands.Command
 
-open class FtbNavigator(val activity: FragmentActivity, private val containerId: Int): SupportAppNavigator(activity, containerId) {
+class FtbNavigator(val manager: FragmentManager, private val containerId: Int): SupportFragmentNavigator(manager, containerId) {
 
-    override fun createActivityIntent(screenKey: String?, data: Any?): Intent {
-        return Intent()
+    override fun exit() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun showSystemMessage(message: String?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    //    override fun createActivityIntent(screenKey: String?, data: Any?): Intent {
+//        return Intent()
+//    }
+//
     companion object {
         val MATCHES by extraKey()
         val RESULTS by extraKey()
@@ -29,6 +39,6 @@ open class FtbNavigator(val activity: FragmentActivity, private val containerId:
             }
         }
     }
-
-    class Over(val screenKey: String, val transitionData: Any?) : Command
+//
+//    class Over(val screenKey: String, val transitionData: Any?) : Command
 }

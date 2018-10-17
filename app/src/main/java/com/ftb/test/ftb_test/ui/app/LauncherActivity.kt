@@ -38,10 +38,10 @@ class LauncherActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var navigatorHolder: NavigatorHolder
 
-    private val navigator by lazy(LazyThreadSafetyMode.NONE) { FtbNavigator(this, FRAGMENT_CONTAINER_ID) }
+    private val navigator by lazy(LazyThreadSafetyMode.NONE) { FtbNavigator(supportFragmentManager, FRAGMENT_CONTAINER_ID) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this) //before calling super!!!!!!!!!!!!!
+        //AndroidInjection.inject(this) //before calling super!!!!!!!!!!!!!
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_container)
         if (savedInstanceState == null) {
@@ -53,8 +53,8 @@ class LauncherActivity : DaggerAppCompatActivity() {
         router.newRootScreen(FtbNavigator.MATCHES, null)
     }
 
-    override fun onResumeFragments() {
-        super.onResumeFragments()
+    override fun onResume() {
+        super.onResume()
         navigatorHolder.setNavigator(navigator)
     }
 
