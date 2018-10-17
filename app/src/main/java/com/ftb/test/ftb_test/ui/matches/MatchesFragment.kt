@@ -11,10 +11,12 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.ftb.test.ftb_test.R
+import com.ftb.test.ftb_test.R.id.recycler_view
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.presenters.MatchesPresenter
 import com.ftb.test.ftb_test.ui.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -33,8 +35,9 @@ class MatchesFragment: BaseFragment(), MatchesView {
     }
 
    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-        AndroidSupportInjection.inject(this)
+       super.onAttach(context)
+       AndroidSupportInjection.inject(this) //before super
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -42,6 +45,7 @@ class MatchesFragment: BaseFragment(), MatchesView {
         val recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.adapter = MatchesAdapter()
         recyclerView.layoutManager = LinearLayoutManager(context)
+        //presenter.onMatchClick(MatchesBase("","",0,2,3))
         return root
     }
 

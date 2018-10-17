@@ -20,7 +20,7 @@ abstract class ActivityBuilder {
      * abstract fun bindNameActivity(): NameActivity
      * */
 
-    @ContributesAndroidInjector(modules = [MatchesScreenModule::class])
+    @ContributesAndroidInjector(modules = [])
     abstract fun contributeLauncherActivityInjector(): LauncherActivity
 
 }

@@ -1,5 +1,6 @@
 package com.ftb.test.ftb_test.presenters
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
@@ -12,6 +13,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPresenter<MatchesView>() {
 
     lateinit var cachedData :List <MatchesBase>;
+
+    init {
+        Log.d ("TTT", "asda")
+    }
 
     override fun attachView(view: MatchesView?) {
         super.attachView(view)

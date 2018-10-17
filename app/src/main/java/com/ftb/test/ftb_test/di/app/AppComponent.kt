@@ -2,6 +2,8 @@ package com.ftb.test.ftb_test.di.app
 
 import android.app.Application
 import com.ftb.test.ftb_test.application.FtbApplication
+import com.ftb.test.ftb_test.di.matches.MatchesScreenModule
+import com.ftb.test.ftb_test.di.results.ResultsScreenModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Provides
@@ -20,6 +22,8 @@ import javax.inject.Singleton
     ActivityBuilder::class,
     FragmentBuilder::class,
     NavigationModule::class,
+//    MatchesScreenModule::class,
+//    ResultsScreenModule::class,
 //    LocalizationModule::class,
      MatchesModule::class,
     ResultsModule::class,

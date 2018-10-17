@@ -14,7 +14,7 @@ import dagger.Provides
 class ResultsScreenModule {
 
     @Provides
-    fun provideResultsPresenter(interactor: ResultsInteractor): ResultsPresenter = ResultsPresenter(interactor)
+    fun provideResultsPresenter(interactor: ResultsInteractor) = ResultsPresenter(interactor)
 
     @Provides
     fun provideResultsInteractor(repositoryResults: ResultsRepository)  : ResultsInteractor
