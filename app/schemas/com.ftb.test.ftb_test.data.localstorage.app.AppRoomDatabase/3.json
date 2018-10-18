@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 3,
-    "identityHash": "fff625c663ddf627864bbd50e6bf0108",
+    "identityHash": "6d1216bf623ba53e03010e45f24d20a4",
     "entities": [
       {
         "tableName": "MatchesBase",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`team1` TEXT NOT NULL, `team2` TEXT NOT NULL, `matchHash` INTEGER NOT NULL, `predictionTeam1` INTEGER NOT NULL, `predictionTeam2` INTEGER NOT NULL, PRIMARY KEY(`matchHash`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`team1` TEXT NOT NULL, `team2` TEXT NOT NULL, `matchBaseHash` INTEGER NOT NULL, `predictionMatchTeam1` INTEGER NOT NULL, `predictionMatchTeam2` INTEGER NOT NULL, PRIMARY KEY(`matchBaseHash`))",
         "fields": [
           {
             "fieldPath": "team1",
@@ -21,27 +21,27 @@
             "notNull": true
           },
           {
-            "fieldPath": "matchHash",
-            "columnName": "matchHash",
+            "fieldPath": "matchBaseHash",
+            "columnName": "matchBaseHash",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "predictionTeam1",
-            "columnName": "predictionTeam1",
+            "fieldPath": "predictionMatchTeam1",
+            "columnName": "predictionMatchTeam1",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "predictionTeam2",
-            "columnName": "predictionTeam2",
+            "fieldPath": "predictionMatchTeam2",
+            "columnName": "predictionMatchTeam2",
             "affinity": "INTEGER",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "matchHash"
+            "matchBaseHash"
           ],
           "autoGenerate": false
         },
@@ -106,11 +106,11 @@
       },
       {
         "tableName": "PredictionsBase",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`matchHash` INTEGER NOT NULL, `predictionTeam1` INTEGER NOT NULL, `predictionTeam2` INTEGER NOT NULL, PRIMARY KEY(`matchHash`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`predictionBaseHash` INTEGER NOT NULL, `predictionTeam1` INTEGER NOT NULL, `predictionTeam2` INTEGER NOT NULL, PRIMARY KEY(`predictionBaseHash`))",
         "fields": [
           {
-            "fieldPath": "matchHash",
-            "columnName": "matchHash",
+            "fieldPath": "predictionBaseHash",
+            "columnName": "predictionBaseHash",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -129,7 +129,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "matchHash"
+            "predictionBaseHash"
           ],
           "autoGenerate": false
         },
@@ -139,7 +139,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fff625c663ddf627864bbd50e6bf0108\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"6d1216bf623ba53e03010e45f24d20a4\")"
     ]
   }
 }

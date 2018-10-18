@@ -19,6 +19,6 @@ class MatchesBase(
     constructor(dao: MatchesBaseDb) : this(dao.team1,
             dao.team2,
             Math.hash(dao.team1, dao.team2),
-            dao.predictionTeam1,
-            dao.predictionTeam2)
+            dao.predictionMatchTeam1,
+            dao.predictionMatchTeam2)
 }

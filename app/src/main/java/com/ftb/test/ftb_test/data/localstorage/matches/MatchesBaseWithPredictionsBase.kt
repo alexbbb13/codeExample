@@ -4,7 +4,7 @@ import android.arch.persistence.room.Embedded
 
 data class MatchesBaseWithPredictionsBase(
         @Embedded
-        val match: MatchesDao,
+        val match: MatchesBaseDb,
         @Embedded
-        val prediction: PredictionsDao?
+        val prediction: PredictionsBaseDb?
 )
