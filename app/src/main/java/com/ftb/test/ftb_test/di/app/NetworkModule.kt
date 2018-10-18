@@ -18,7 +18,7 @@ class NetworkModule {
     @Singleton
     fun getRetrofit(okHttpClient: OkHttpClient): Retrofit  {
         return Retrofit.Builder()
-                .baseUrl("https://swapi.co/api/")
+                .baseUrl("http://www.mocky.io/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)

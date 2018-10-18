@@ -39,8 +39,7 @@ class MatchesFragment: BaseFragment(), MatchesView {
         return presenter
     }
 
-    @Inject
-    lateinit var interactor: MatchesInteractor
+    val adapter = MatchesAdapter()
 
    override fun onAttach(context: Context?) {
        super.onAttach(context)
@@ -51,21 +50,21 @@ class MatchesFragment: BaseFragment(), MatchesView {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_recyclerview, container, false)
         val recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.adapter = MatchesAdapter()
+        recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
-        interactor.getMatches()
-        interactor.getMatches()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({}, {
-                    it.printStackTrace()
-                })
-        Log.d("TTT", "sdfds")
-        presenter.onMatchClick(MatchesBase("","",0,2,3))
+//        interactor.getMatches()
+//        interactor.getMatches()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe({}, {
+//                    it.printStackTrace()
+//                })
+//        Log.d("TTT", "sdfds")
+//        presenter.onMatchClick(MatchesBase("","",0,2,3))
         return root
     }
 
     override fun setData(items: List<MatchesBase>) {
-        (recycler_view.adapter as MatchesAdapter).setData(items)
+        adapter.setData(items)
     }
 }

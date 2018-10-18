@@ -2,20 +2,14 @@ package com.ftb.test.ftb_test.ui.app
 
 import android.app.Activity
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
-import android.widget.Toast
 import com.ftb.test.ftb_test.R
-import com.ftb.test.ftb_test.application.FtbApplication
 import com.ftb.test.ftb_test.extra.extraKey
 import com.ftb.test.ftb_test.navigation.FtbNavigator
-import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
-import ru.terrakok.cicerone.android.SupportFragmentNavigator
-import java.lang.System.exit
 import javax.inject.Inject
 
 class LauncherActivity : DaggerAppCompatActivity() {

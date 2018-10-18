@@ -2,6 +2,7 @@ package com.ftb.test.ftb_test.ui.matches
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -18,12 +19,12 @@ class MatchesAdapter() :
     // Each data item is just a string in this case that is shown in a TextView.
     private var myDataset: List<MatchesBase> = emptyList()
 
-    class ViewHolder(val relativeLayout: RelativeLayout,
+    class ViewHolder(val layout: View,
                      val team1: TextView,
                      val team2: TextView,
                      val prediction1: TextView,
                      val prediction2: TextView
-                     ) : RecyclerView.ViewHolder(relativeLayout){
+                     ) : RecyclerView.ViewHolder(layout){
 
     }
 
@@ -32,7 +33,7 @@ class MatchesAdapter() :
                                     viewType: Int): MatchesAdapter.ViewHolder {
         // create a new view
         val root = LayoutInflater.from(parent.context)
-                .inflate(R.layout.layout_list_item_matches, parent, false) as RelativeLayout
+                .inflate(R.layout.layout_list_item_matches, parent, false)
         val team1 = root.findViewById<TextView>(R.id.tv_team1)
         val team2 = root.findViewById<TextView>(R.id.tv_team2)
         val prediction1 = root.findViewById<TextView>(R.id.tv_prediction1)
@@ -58,10 +59,11 @@ class MatchesAdapter() :
 
     fun setData (data: List<MatchesBase>){
         myDataset = data
+        notifyDataSetChanged()
     }
 
     fun setText(view: TextView, value: Int){
-        val text = if(value < 0) value.toString() else "?"
+        val text = if(value < 0) "" else value.toString()
         view.text = text
     }
 

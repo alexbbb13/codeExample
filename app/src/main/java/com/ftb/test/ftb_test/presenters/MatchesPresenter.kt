@@ -8,6 +8,7 @@ import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
 import com.ftb.test.ftb_test.ui.matches.MatchesView
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 @InjectViewState
 class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPresenter<MatchesView>() {
@@ -21,6 +22,7 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPrese
     override fun attachView(view: MatchesView?) {
         super.attachView(view)
         interactor.getMatches()
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::onComplete, this::onError)
     }
