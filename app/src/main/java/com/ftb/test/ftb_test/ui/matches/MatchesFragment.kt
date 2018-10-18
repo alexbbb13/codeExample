@@ -61,7 +61,7 @@ class MatchesFragment: BaseFragment(), MatchesView {
                     it.printStackTrace()
                 })
         Log.d("TTT", "sdfds")
-        //presenter.onMatchClick(MatchesBase("","",0,2,3))
+        presenter.onMatchClick(MatchesBase("","",0,2,3))
         return root
     }
 
