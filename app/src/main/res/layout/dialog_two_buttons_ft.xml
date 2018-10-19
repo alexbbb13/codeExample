@@ -57,9 +57,9 @@
                 android:layout_margin="16dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:text="+"
+                android:text="-"
                 android:textColor="#484848"
-                tools:text="+" />
+                tools:text="" />
 
 
         </LinearLayout>
@@ -110,9 +110,9 @@
                 android:layout_margin="16dp"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:text="+"
+                android:text="-"
                 android:textColor="#484848"
-                tools:text="+" />
+                tools:text="-" />
         </LinearLayout>
     </LinearLayout>
 

@@ -12,6 +12,7 @@ import android.widget.TextView
 import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.extra.extraKey
 import kotlinx.android.parcel.Parcelize
+import kotlinx.android.synthetic.main.dialog_two_buttons_ft.*
 import kotlinx.android.synthetic.main.dialog_two_buttons_ft.view.*
 
 
@@ -37,30 +38,45 @@ class TwoButtonDialogFragment : DialogFragment() {
     }
 
     @Parcelize
-    data class Arguments(val id: Int, val text: String, val yesButton: String, val noButton: String, val bundle: Bundle? = null) : Parcelable
+    data class Arguments(val team1Name:String, val team2Name: String, val scoreTeam1: Int, val scoreTeam2: Int) : Parcelable
 
-    var dialogID:Int = 0
-    var bundle: Bundle? = null
+    lateinit var btTeam1Plus : Button
+    lateinit var btTeam2Plus : Button
+    lateinit var btTeam1Minus : Button
+    lateinit var btTeam2Minus : Button
+    lateinit var score1View : TextView
+    lateinit var score2View : TextView
+    var score1: Int = 0
+    var score2: Int = 0
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v = inflater.inflate(R.layout.dialog_two_buttons_ft, container, false)
-        val title = v.findViewById<TextView>(R.id.tv_team1)
+        val team1View = v.findViewById<TextView>(R.id.tv_team1)
+        val team2View = v.findViewById<TextView>(R.id.tv_team2)
         val yes = v.findViewById<Button>(R.id.dialog_button_yes)
         val no = v.findViewById<Button>(R.id.dialog_button_no)
-
+        score1View = v.findViewById<Button>(R.id.tv_score1)
+        score2View = v.findViewById<Button>(R.id.tv_score2)
+        v.findViewById<Button>(R.id.bt_team1_plus).setOnClickListener { _ -> score1Update(1)}
+        v.findViewById<Button>(R.id.bt_team1_minus).setOnClickListener { _ -> score1Update(-1)}
+        v.findViewById<Button>(R.id.bt_team2_plus).setOnClickListener { _ -> score2Update(1)}
+        v.findViewById<Button>(R.id.bt_team2_minus).setOnClickListener { _ -> score2Update(-1)}
         arguments?.getParcelable<Arguments>(ARGS)?.let {
-            title.text = it.text
-            yes.text = it.yesButton as String
+            team1View.text = it.team1Name
+            team2View.text = it.team2Name
+            yes.text = "Yes"
             yes.setOnClickListener{_ -> notify(SELECTED_YES)}
-            no.text = it.noButton as String
+            no.text = "No "
             no.setOnClickListener{_ ->
                 notify(SELECTED_NO)
                 dismiss()
             }
-            dialogID = it.id
-            bundle = it.bundle
+            score1 = if(it.scoreTeam1 > 0) it.scoreTeam1 else 0
+            score2 = if(it.scoreTeam2 > 0) it.scoreTeam2 else 0
+            score1Update(0)
+            score2Update(0)
         }
         return v
     }
@@ -70,14 +86,30 @@ class TwoButtonDialogFragment : DialogFragment() {
         notify(SELECTED_DISMISS)
     }
 
-    interface onDialogClickedListener {
-        fun onClick(id: Int, selectedChoice: Int, bundle: Bundle?)
+    private fun score1Update(delta: Int){
+        score1 = score1 + delta
+        if (score1 < 0 ) score1 = 0
+        score1View.text = score1.toString()
+    }
+
+    private fun score2Update(delta: Int){
+        score2 = score2 + delta
+        if (score2 < 0 ) score2 = 0
+        score2View.text = score2.toString()
+    }
+
+    interface OnDialogClickedListener {
+        fun onDialogChoiceClick(choice: Int, team1Name:String, team2Name: String, team1Score: Int, team2Score: Int)
     }
 
     private fun notify(state: Int){
         val fragment = targetFragment
-        if (fragment is onDialogClickedListener) {
-            (fragment as onDialogClickedListener).onClick(dialogID, state, bundle)
+        if (fragment is OnDialogClickedListener) {
+            arguments?.getParcelable<Arguments>(ARGS)?.let {
+                (fragment as OnDialogClickedListener).onDialogChoiceClick(state, it.team1Name, it.team2Name, score1, score2)
+            }
         }
     }
+
+
 }

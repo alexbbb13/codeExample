@@ -4,13 +4,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.TextView
 import com.ftb.test.ftb_test.R
-import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 
-class MatchesAdapter() :
+
+class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         RecyclerView.Adapter<MatchesAdapter.ViewHolder>() {
 
     // Provide a reference to the views for each data item
@@ -26,6 +25,9 @@ class MatchesAdapter() :
                      val prediction2: TextView
                      ) : RecyclerView.ViewHolder(layout){
 
+        fun bind(item: MatchesBase, listener: (MatchesBase) -> Unit) {
+            itemView.setOnClickListener { _ ->listener(item) }
+        }
     }
 
     // Create new views (invoked by the layout manager)
@@ -52,6 +54,7 @@ class MatchesAdapter() :
         holder.team2.text = item.team2
         setText(holder.prediction1, item.team1_prediction)
         setText(holder.prediction2, item.team2_prediction)
+        holder.bind(item, listener);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -66,5 +69,9 @@ class MatchesAdapter() :
         val text = if(value < 0) "" else value.toString()
         view.text = text
     }
+
+//    interface OnItemClickListener {
+//        fun onItemClick(item: MatchesBase)
+//    }
 
 }

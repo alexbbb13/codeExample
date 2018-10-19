@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -17,6 +18,7 @@ import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
 import com.ftb.test.ftb_test.presenters.MatchesPresenter
 import com.ftb.test.ftb_test.ui.base.BaseFragment
+import com.ftb.test.ftb_test.ui.dialogs.TwoButtonDialogFragment
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -25,7 +27,7 @@ import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import javax.inject.Inject
 import javax.inject.Provider
 
-class MatchesFragment: BaseFragment(), MatchesView {
+class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDialogClickedListener {
 
     @Inject
     lateinit var presenterProvider: Provider<MatchesPresenter>
@@ -39,7 +41,13 @@ class MatchesFragment: BaseFragment(), MatchesView {
         return presenter
     }
 
-    val adapter = MatchesAdapter()
+
+//    val listener = object:MatchesAdapter.OnItemClickListener{
+//        override fun onItemClick(item: MatchesBase) {
+//            presenter.selectedMatch(item)
+//        }
+//    }
+    val adapter = MatchesAdapter(listener = {presenter.selectedMatch(it)})
 
    override fun onAttach(context: Context?) {
        super.onAttach(context)
@@ -52,19 +60,20 @@ class MatchesFragment: BaseFragment(), MatchesView {
         val recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
-//        interactor.getMatches()
-//        interactor.getMatches()
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe({}, {
-//                    it.printStackTrace()
-//                })
-//        Log.d("TTT", "sdfds")
-//        presenter.onMatchClick(MatchesBase("","",0,2,3))
         return root
     }
 
     override fun setData(items: List<MatchesBase>) {
         adapter.setData(items)
+    }
+
+    override fun beginMatchSelection(team1: String, team2: String, team1_prediction: Int, team2_prediction: Int) {
+        val dialog = TwoButtonDialogFragment.newInstance(TwoButtonDialogFragment.Arguments(team1, team2, team1_prediction, team2_prediction))
+        dialog.setTargetFragment(this, 0)
+        dialog.show(fragmentManager, "MatchesFragment")
+    }
+
+    override fun onDialogChoiceClick(choice: Int, team1Name:String, team2Name: String, team1Score: Int, team2Score: Int) {
+        presenter.onDialogChoiceClick(choice, team1Name, team2Name, team1Score, team2Score)
     }
 }

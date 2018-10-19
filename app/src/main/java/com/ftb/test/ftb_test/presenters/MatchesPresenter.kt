@@ -6,9 +6,11 @@ import com.arellomobile.mvp.MvpPresenter
 import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
+import com.ftb.test.ftb_test.ui.dialogs.TwoButtonDialogFragment
 import com.ftb.test.ftb_test.ui.matches.MatchesView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import java.lang.RuntimeException
 
 @InjectViewState
 class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPresenter<MatchesView>() {
@@ -50,6 +52,16 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPrese
         if( matchReplace.matchHash == matchHash) {
             matchReplace.team1_prediction = score1
             matchReplace.team2_prediction = score2
+        }
+    }
+
+    fun selectedMatch(item: MatchesBase) {
+        viewState.beginMatchSelection(item.team1, item.team2, item.team1_prediction, item.team2_prediction)
+    }
+
+    fun onDialogChoiceClick(choice: Int, team1Name: String, team2Name: String, team1Score: Int, team2Score: Int) {
+        if(choice == TwoButtonDialogFragment.SELECTED_YES) {
+            throw RuntimeException("Ebtaaaa score ${team1Score} - ${team2Score}")
         }
     }
 }
