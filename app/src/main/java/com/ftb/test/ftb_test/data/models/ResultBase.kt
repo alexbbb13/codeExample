@@ -29,8 +29,8 @@ class ResultBase(
             -1) {
     }
 
-    fun setPrediction(base: MatchesBase){
-        team1_prediction = base.team1_prediction
-        team2_prediction = base.team2_prediction
-    }
+//    fun setPrediction(base: MatchesBase){
+//        team1_prediction = base.team1_prediction
+//        team2_prediction = base.team2_prediction
+//    }
 }

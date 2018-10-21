@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="CMakeSettings">
@@ -16,29 +16,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="856cfbcc-b8c9-42e1-a5e3-ff51a23a11dd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/PredictionsLocalStorage.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/PredictionsLocalStorageImpl.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/app/PredictionsModule.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/PredictionsRepository.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/PredictionsRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_j256_ormlite_ormlite_android_5_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_j256_ormlite_ormlite_core_5_1_jar.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesDiffCallback.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/fragment_matches.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/application/FtbApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/application/FtbApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/PredictionsBaseDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/PredictionsBaseDb.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/MatchesLocalStorageImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/MatchesLocalStorageImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseDb.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseDb.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/MatchesBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/MatchesBase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/PredictionBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/PredictionBase.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/app/AppComponent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/app/AppComponent.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/matches/MatchesScreenModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/matches/MatchesScreenModule.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/ResultBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/ResultBase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractor.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepositoryImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/dialogs/TwoButtonDialogFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/dialogs/TwoButtonDialogFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/utils/Math.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/utils/BettingMath.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesView.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesView.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,74 +54,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MatchesInteractorImpl.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt">
+      <file leaf-file-name="MatchesView.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesView.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MatchesRepository.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepository.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchesRepositoryImpl.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepositoryImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchesLocalStorage.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/MatchesLocalStorage.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchesLocalStorageImpl.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/MatchesLocalStorageImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppRoomDatabase.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/app/AppRoomDatabase.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="17" column="39" lean-forward="true" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchesDao.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-206">
-              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchesPresenter.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MatchesPresenter.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+            <state relative-caret-position="107">
+              <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -136,18 +75,88 @@
       <file leaf-file-name="MatchesInteractor.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractor.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="59" />
+            <state relative-caret-position="187">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+              <folding>
+                <element signature="e#44#311#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TwoButtonDialogFragment.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/dialogs/TwoButtonDialogFragment.kt">
+      <file leaf-file-name="MatchesAdapter.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesAdapter.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
+            <state relative-caret-position="124">
+              <caret line="84" selection-start-line="84" selection-end-line="84" />
+              <folding>
+                <element signature="e#42#417#0" expanded="true" />
+              </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MatchesDiffCallback.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesDiffCallback.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="35" column="76" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+              <folding>
+                <element signature="e#42#177#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MatchesInteractorImpl.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="134">
+              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+              <folding>
+                <element signature="e#43#365#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MatchesRepository.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepository.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MatchesFragment.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_recyclerview.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recyclerview.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-102" />
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fragment_matches.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_matches.xml">
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="android-designer2">
+            <state />
           </provider>
         </entry>
       </file>
@@ -167,11 +176,14 @@
       <find>MyAdapter</find>
       <find>lateinit var</find>
       <find>Matches</find>
+      <find>Employee</find>
+      <find>get(0)</find>
     </findStrings>
     <replaceStrings>
       <replace>MatchesAdapter</replace>
       <replace>val</replace>
       <replace>Predictions</replace>
+      <replace>Match</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -2627,16 +2639,9 @@
         <option value="$PROJECT_DIR$/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/base/BaseFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/MatchesBase.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesView.kt" />
         <option value="$PROJECT_DIR$/src/main/res/layout/dialog_two_buttons_ft.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesAdapter.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/utils/BettingMath.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/PredictionBase.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseDb.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/PredictionsBaseDb.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/PredictionsLocalStorageImpl.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/PredictionsLocalStorage.kt" />
@@ -2647,12 +2652,23 @@
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/app/AppComponent.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/application/FtbApplication.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/dialogs/TwoButtonDialogFragment.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractor.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepository.kt" />
         <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepositoryImpl.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/dialogs/TwoButtonDialogFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseDb.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/ResultBase.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/MatchesBase.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/MatchesLocalStorageImpl.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesAdapter.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesDiffCallback.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractor.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesView.kt" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/fragment_matches.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesFragment.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt" />
       </list>
     </option>
   </component>
@@ -2893,6 +2909,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="ftb_test" type="462c0819:PsiDirectoryNode" />
+              <item name="extra" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bettingapp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ftb_test" type="462c0819:PsiDirectoryNode" />
               <item name="interactors" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2989,6 +3015,23 @@
               <item name="ftb_test" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bettingapp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bettingapp" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -3015,6 +3058,9 @@
       <recent name="com.ftb.test.ftb_test.data.localstorage.interfaces" />
       <recent name="com.ftb.test.ftb_test.repositories" />
       <recent name="com.ftb.test.ftb_test.interactors" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Android\bettingapp\app\src\main\res\layout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -3176,37 +3222,37 @@
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info id="Build Variants" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.16873774" side_tool="true" visible="true" weight="0.2549575" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="7" sideWeight="0.8312623" visible="true" weight="0.2549575" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.8051014" weight="0.3286119" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.7325049" weight="0.39943343" />
+      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.32962722" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info id="simpleUML" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
-      <window_info id="Build Variants" order="2" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.19293655" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="right" id="Preview" order="3" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49967298" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Logcat" order="7" sideWeight="0.8351864" weight="0.3711048" />
       <window_info id="Captures" order="2" weight="0.25" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983649" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.80706346" visible="true" weight="0.3286119" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24852845" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49901897" weight="0.3286119" />
       <window_info anchor="right" id="Gradle" order="3" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Fabric" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4977109" weight="0.39943343" />
-      <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" weight="0.32962722" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Preview" order="3" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" sideWeight="0.49901897" visible="true" weight="0.3286119" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3217,164 +3263,24 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt</url>
-          <line>28</line>
+          <line>78</line>
           <properties />
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt</url>
-          <line>33</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesDiffCallback.kt</url>
+          <line>41</line>
           <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt</url>
-          <line>75</line>
-          <properties />
-          <option name="timeStamp" value="8" />
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="9" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/app/Qalifiers.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/remotestorage/ApiInterface.kt" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/app/RetrofitModule.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="43" column="75" selection-start-line="43" selection-start-column="75" selection-end-line="43" selection-end-column="75" />
-          <folding>
-            <element signature="e#38#352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/di/app/AppComponent.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/remotestorage/MatchesApi.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/caches/modules-2/files-2.1/com.arello-mobile/moxy/1.5.5/de6cee288b9087f51f31e6bdfba630964ed04de3/moxy-1.5.5-sources.jar!/com/arellomobile/mvp/presenter/InjectPresenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/source/kapt/debug/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao_Impl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="138" selection-start-line="138" selection-end-line="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/base/BaseFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="26" column="109" selection-start-line="26" selection-start-column="109" selection-end-line="26" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/di/app/MyApplicationComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/di/app/MyApplicationModule.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/data/localstorage/matches/PredictionsBaseDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/MatchesBase.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/generated/not_namespaced_r_class_sources/debug/processDebugResources/r/com/ftb/test/ftb_test/R.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64481">
-          <caret line="3798" column="28" selection-start-line="3798" selection-start-column="28" selection-end-line="3798" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/dialog_two_buttons_ft.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1938">
@@ -3392,13 +3298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="62" selection-start-line="28" selection-start-column="62" selection-end-line="28" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/PredictionsDao.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-83">
@@ -3410,20 +3309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseDb.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/PredictionsBaseDb.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -3511,48 +3396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/dialogs/TwoButtonDialogFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractor.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepository.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepositoryImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
@@ -3567,13 +3410,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/MatchesLocalStorageImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/app/AppRoomDatabase.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -3581,10 +3417,253 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/PredictionsBaseDb.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/dialogs/TwoButtonDialogFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/tmp/kapt3/stubs/debug/com/ftb/test/ftb_test/di/app/MyApplicationComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesDao.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-206">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        <state relative-caret-position="287">
+          <caret line="32" column="66" selection-start-line="32" selection-start-column="66" selection-end-line="32" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseDb.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="19" column="149" selection-start-line="19" selection-start-column="149" selection-end-line="19" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/ResultBase.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/matches/MatchesBaseWithPredictionsBase.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
+          <folding>
+            <element signature="e#57#148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sdk/sources/android-27/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="865" selection-start-line="865" selection-end-line="865" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sdk/sources/android-27/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="406" column="25" selection-start-line="406" selection-start-column="25" selection-end-line="406" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sdk/sources/android-27/android/app/ActivityThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="6250" selection-start-line="6250" selection-end-line="6250" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sdk/sources/android-27/android/os/Looper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="202" selection-start-line="202" selection-end-line="202" />
+          <folding>
+            <element signature="e#7564#7565#0" expanded="true" />
+            <element signature="e#7605#7606#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../sdk/sources/android-27/android/os/Handler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="835" selection-start-line="835" selection-end-line="835" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxandroid/2.0.2/ec7d5f2d49c35433363e36cb5e7790b2997bf0e8/rxandroid-2.0.2-sources.jar!/io/reactivex/android/schedulers/HandlerScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.12/c3ecbf29cbfecec5f00fcb1442acd0285962eefe/rxjava-2.1.12-sources.jar!/io/reactivex/internal/operators/observable/ObservableObserveOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="275" selection-start-line="275" selection-end-line="275" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.1.12/c3ecbf29cbfecec5f00fcb1442acd0285962eefe/rxjava-2.1.12-sources.jar!/io/reactivex/internal/observers/LambdaObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/layout_list_item_matches.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="50" column="38" selection-start-line="50" selection-start-column="38" selection-end-line="50" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/localstorage/interfaces/MatchesLocalStorageImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/remotestorage/interfaces/MatchesRemoteStorageImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/data/models/MatchesBase.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.2.60/d1717ea2b34537140fe051ef0e2e8cbd91c650b8/kotlin-stdlib-common-1.2.60-sources.jar!/generated/_Collections.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="1490" selection-start-line="1490" selection-end-line="1490" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#42#417#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesDiffCallback.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="35" column="76" selection-start-line="35" selection-start-column="76" selection-end-line="35" selection-end-column="76" />
+          <folding>
+            <element signature="e#42#177#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/repositories/MatchesRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractor.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+          <folding>
+            <element signature="e#44#311#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/interactors/MatchesInteractorImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+          <folding>
+            <element signature="e#43#365#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_matches.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/fragment_recyclerview.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102" />
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/ui/matches/MatchesFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="73" column="28" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftb/test/ftb_test/presenters/MatchesPresenter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
         </state>
       </provider>
     </entry>

@@ -38,7 +38,7 @@ class TwoButtonDialogFragment : DialogFragment() {
     }
 
     @Parcelize
-    data class Arguments(val team1Name:String, val team2Name: String, val scoreTeam1: Int, val scoreTeam2: Int) : Parcelable
+    data class Arguments(val team1Name:String, val team2Name: String, val scoreTeam1: Int?, val scoreTeam2: Int?) : Parcelable
 
     lateinit var btTeam1Plus : Button
     lateinit var btTeam2Plus : Button
@@ -76,8 +76,9 @@ class TwoButtonDialogFragment : DialogFragment() {
                 notify(SELECTED_NO)
                 dismiss()
             }
-            score1 = if(it.scoreTeam1 > 0) it.scoreTeam1 else 0
-            score2 = if(it.scoreTeam2 > 0) it.scoreTeam2 else 0
+            score1 = 0
+            score1 = if(it.scoreTeam1 == null || it.scoreTeam1 < 0) 0 else it.scoreTeam1
+            score2 = if(it.scoreTeam2 == null || it.scoreTeam2 < 0) 0 else it.scoreTeam2
             score1Update(0)
             score2Update(0)
         }

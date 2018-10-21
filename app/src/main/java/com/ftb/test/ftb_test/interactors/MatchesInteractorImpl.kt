@@ -6,6 +6,7 @@ import com.ftb.test.ftb_test.repositories.MatchesRepository
 import com.ftb.test.ftb_test.repositories.PredictionsRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 class MatchesInteractorImpl(val repositoryMatches: MatchesRepository,
                             val repositoryPredictions: PredictionsRepository) : MatchesInteractor {

@@ -41,12 +41,6 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
         return presenter
     }
 
-
-//    val listener = object:MatchesAdapter.OnItemClickListener{
-//        override fun onItemClick(item: MatchesBase) {
-//            presenter.selectedMatch(item)
-//        }
-//    }
     val adapter = MatchesAdapter(listener = {presenter.selectedMatch(it)})
 
    override fun onAttach(context: Context?) {
@@ -56,7 +50,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_recyclerview, container, false)
+        val root = inflater.inflate(R.layout.fragment_matches, container, false)
         val recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -67,7 +61,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
         adapter.setData(items)
     }
 
-    override fun beginMatchSelection(team1: String, team2: String, team1_prediction: Int, team2_prediction: Int) {
+    override fun beginMatchSelection(team1: String, team2: String, team1_prediction: Int?, team2_prediction: Int?) {
         val dialog = TwoButtonDialogFragment.newInstance(TwoButtonDialogFragment.Arguments(team1, team2, team1_prediction, team2_prediction))
         dialog.setTargetFragment(this, 0)
         dialog.show(fragmentManager, "MatchesFragment")
@@ -75,5 +69,9 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
 
     override fun onDialogChoiceClick(choice: Int, team1Name:String, team2Name: String, team1Score: Int, team2Score: Int) {
         presenter.onDialogChoiceClick(choice, team1Name, team2Name, team1Score, team2Score)
+    }
+
+    override fun switchResultsButton(predictionsExist: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

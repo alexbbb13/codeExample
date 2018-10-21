@@ -29,7 +29,7 @@ interface MatchesDao {
         insertBaseMatchess(items)
     }
 
-    @Query("SELECT * FROM MatchesBase B LEFT JOIN PredictionsBase P ON (B.matchBaseHash = P.predictionBaseHash)")
+    @Query("SELECT * FROM MatchesBase")
     fun getMatchesBaseWithPredictionsBase(): Single<List<MatchesBaseWithPredictionsBase>>
 
 

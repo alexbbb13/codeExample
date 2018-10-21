@@ -17,6 +17,6 @@ data class MatchesBaseDb(
     constructor(dao: MatchNetworkDao) : this(dao.team1, dao.team2, dao.team1.hashCode().xor(dao.team2.hashCode()), Constants.NO_SCORE, Constants.NO_SCORE) {
     }
 
-    constructor(dao: MatchesBase) : this(dao.team1, dao.team2, dao.team1.hashCode().xor(dao.team2.hashCode()), dao.team1_prediction, dao.team2_prediction)
+    constructor(dao: MatchesBase) : this(dao.team1, dao.team2, dao.team1.hashCode().xor(dao.team2.hashCode()), Constants.NO_SCORE, Constants.NO_SCORE)
 
 }

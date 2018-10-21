@@ -17,7 +17,8 @@ import java.lang.RuntimeException
 @InjectViewState
 class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPresenter<MatchesView>() {
 
-    lateinit var cachedData: List<MatchesBase>;
+
+    var predictionsExist = false;
 
     override fun attachView(view: MatchesView?) {
         super.attachView(view)
@@ -25,41 +26,48 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPrese
     }
 
     private fun onComplete(data: List<MatchesBase>) {
-        update(data)
-        cachedData = data;
+        store(data)
+        //checkPredictionsExist(data)
+        //viewState.switchResultsButton(predictionsExist)
         viewState.setData(data)
+    }
+
+    private fun checkPredictionsExist(data: List<MatchesBase>) {
+        if(!predictionsExist) {
+            data.forEach { match -> checkMatch(match)
+            }
+        }
+    }
+
+    private fun checkMatch(matchesBase: MatchesBase){
+        if ((matchesBase.team1_prediction!=null && matchesBase.team1_prediction != -1)||
+        (matchesBase.team2_prediction!=null && matchesBase.team2_prediction != -1)) predictionsExist = true
     }
 
     private fun onError(t: Throwable) {
         t.printStackTrace()
     }
 
-    private fun update(data: List<MatchesBase>){
+    private fun store(data: List<MatchesBase>) {
         interactor.updateData(data)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({})
     }
 
-     private fun load() {
+    private fun load() {
         interactor.getMatches()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::onComplete, this::onError)
     }
 
-//    public fun onPredictionCompletedClick(match: MatchesBase, score1: Int, score2: Int) {
-//        cachedData.forEach({ dataItem -> checkAndReplaceScores(dataItem, match.matchHash, score1, score2) })
-//        //interactor.updatePredictions(cachedData)
-//        viewState.setData(cachedData)
+//    private fun checkAndReplaceScores(matchReplace: MatchesBase, matchHash: Int, score1: Int, score2: Int) {
+//        if (matchReplace.matchHash == matchHash) {
+//            matchReplace.team1_prediction = score1
+//            matchReplace.team2_prediction = score2
+//        }
 //    }
-
-    private fun checkAndReplaceScores(matchReplace: MatchesBase, matchHash: Int, score1: Int, score2: Int) {
-        if (matchReplace.matchHash == matchHash) {
-            matchReplace.team1_prediction = score1
-            matchReplace.team2_prediction = score2
-        }
-    }
 
     fun selectedMatch(item: MatchesBase) {
         viewState.beginMatchSelection(item.team1, item.team2, item.team1_prediction, item.team2_prediction)
@@ -73,13 +81,8 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPrese
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
-                        cachedData.forEach({ dataItem -> checkAndReplaceScores(dataItem, matchHash, team1Score, team2Score) })
-                        viewState.setData(cachedData)
+                        load()
                     })
-            //interactor.updatePredictions(cachedData)
-
-            //load()
-            //throw RuntimeException("Ebtaaaa score ${team1Score} - ${team2Score}")
         }
     }
 }
