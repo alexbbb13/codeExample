@@ -7,8 +7,8 @@ class AppRouter : Router() {
 //        navigateOver(screenKey, null)
 //    }
 //
-//    fun navigateOver(screenKey: String, transitionData: Any?) {
-//        executeCommand(FtbNavigator.Over(screenKey, transitionData))
-//    }
+    fun navigateOver(screenKey: String, transitionData: Any?) {
+        executeCommand(FtbNavigator.Over(screenKey, transitionData))
+    }
 
 }

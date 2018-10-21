@@ -20,7 +20,7 @@
         tools:text =  "Matches"/>
 
     <Button
-        android:id="@+id/tv_results"
+        android:id="@+id/bt_results"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textSize="16dp"

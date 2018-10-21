@@ -7,6 +7,8 @@ import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.PredictionBase
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
+import com.ftb.test.ftb_test.navigation.AppRouter
+import com.ftb.test.ftb_test.navigation.FtbNavigator
 import com.ftb.test.ftb_test.ui.dialogs.TwoButtonDialogFragment
 import com.ftb.test.ftb_test.ui.matches.MatchesView
 import com.ftb.test.ftb_test.utils.BettingMath
@@ -15,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
 import java.lang.RuntimeException
 
 @InjectViewState
-class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPresenter<MatchesView>() {
+class MatchesPresenter constructor(val interactor: MatchesInteractor, val router: AppRouter) : MvpPresenter<MatchesView>() {
 
 
     var predictionsExist = false;
@@ -27,8 +29,8 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPrese
 
     private fun onComplete(data: List<MatchesBase>) {
         store(data)
-        //checkPredictionsExist(data)
-        //viewState.switchResultsButton(predictionsExist)
+        checkPredictionsExist(data)
+        viewState.switchResultsButton(predictionsExist)
         viewState.setData(data)
     }
 
@@ -84,5 +86,9 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor) : MvpPrese
                         load()
                     })
         }
+    }
+
+    fun resultsButtonClicked() {
+        router.navigateTo(FtbNavigator.RESULTS)
     }
 }

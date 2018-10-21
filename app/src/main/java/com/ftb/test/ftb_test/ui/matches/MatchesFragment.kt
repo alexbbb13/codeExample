@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.Toast
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
@@ -23,6 +24,7 @@ import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.DaggerFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_matches.*
 import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import javax.inject.Inject
 import javax.inject.Provider
@@ -42,6 +44,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
     }
 
     val adapter = MatchesAdapter(listener = {presenter.selectedMatch(it)})
+    lateinit var resultsButton: Button;
 
    override fun onAttach(context: Context?) {
        super.onAttach(context)
@@ -52,6 +55,8 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_matches, container, false)
         val recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view)
+        resultsButton = root.findViewById<Button>(R.id.bt_results)
+        resultsButton.setOnClickListener { presenter.resultsButtonClicked()}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         return root
@@ -72,6 +77,6 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
     }
 
     override fun switchResultsButton(predictionsExist: Boolean) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        resultsButton.visibility = if(predictionsExist) View.VISIBLE else View.GONE
     }
 }

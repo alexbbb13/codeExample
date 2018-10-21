@@ -13,4 +13,10 @@ class CiceroneModule {
     fun provideCicerone(): Cicerone<AppRouter> {
         return Cicerone.create(AppRouter())
     }
+
+    @Provides
+    @Singleton
+    fun provideRouter(): AppRouter {
+        return AppRouter()
+    }
 }

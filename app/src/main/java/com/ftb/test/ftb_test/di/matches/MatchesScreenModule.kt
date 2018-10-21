@@ -2,6 +2,7 @@ package com.ftb.test.ftb_test.di.matches
 
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
 import com.ftb.test.ftb_test.interactors.MatchesInteractorImpl
+import com.ftb.test.ftb_test.navigation.AppRouter
 import com.ftb.test.ftb_test.presenters.MatchesPresenter
 import com.ftb.test.ftb_test.repositories.MatchesRepository
 import com.ftb.test.ftb_test.repositories.PredictionsRepository
@@ -14,7 +15,7 @@ import javax.inject.Singleton
 class MatchesScreenModule {
 
     @Provides
-    fun provideMatchesPresenter(interactor: MatchesInteractor) = MatchesPresenter(interactor)
+    fun provideMatchesPresenter(interactor: MatchesInteractor, router: AppRouter) = MatchesPresenter(interactor, router)
 
     @Provides
     fun provideMatchesInteractor(repositoryMatches: MatchesRepository, repositoryP: PredictionsRepository)  : MatchesInteractor

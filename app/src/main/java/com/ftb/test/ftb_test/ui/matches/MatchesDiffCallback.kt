@@ -21,9 +21,10 @@ class MatchesDiffCallback(private val mOldMatchList: List<MatchesBase>, private 
         val oldMatch = mOldMatchList[oldItemPosition]
         val newMatch = mNewMatchList[newItemPosition]
         if (oldMatch.matchHash != newMatch.matchHash) return false
+        return true;
         logData("areItemsTheSame", oldMatch, newMatch)
-        return !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
-                shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
+//        return !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
+//                shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
 
         //return mOldMatchList[oldItemPosition].matchHash == mNewMatchList[newItemPosition].matchHash
     }
