@@ -1,6 +1,6 @@
 package com.ftb.test.ftb_test.utils
 
-class Math(){
+class BettingMath(){
     companion object {
         inline fun hash(i: Int, j: Int): Int {
             return i.xor(j)

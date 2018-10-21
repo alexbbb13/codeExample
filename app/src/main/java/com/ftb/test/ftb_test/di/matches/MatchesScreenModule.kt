@@ -4,6 +4,8 @@ import com.ftb.test.ftb_test.interactors.MatchesInteractor
 import com.ftb.test.ftb_test.interactors.MatchesInteractorImpl
 import com.ftb.test.ftb_test.presenters.MatchesPresenter
 import com.ftb.test.ftb_test.repositories.MatchesRepository
+import com.ftb.test.ftb_test.repositories.PredictionsRepository
+import com.ftb.test.ftb_test.repositories.ResultsRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -15,7 +17,7 @@ class MatchesScreenModule {
     fun provideMatchesPresenter(interactor: MatchesInteractor) = MatchesPresenter(interactor)
 
     @Provides
-    fun provideMatchesInteractor(repositoryMatches: MatchesRepository)  : MatchesInteractor
-            = MatchesInteractorImpl(repositoryMatches)
+    fun provideMatchesInteractor(repositoryMatches: MatchesRepository, repositoryP: PredictionsRepository)  : MatchesInteractor
+            = MatchesInteractorImpl(repositoryMatches, repositoryP)
 
 }

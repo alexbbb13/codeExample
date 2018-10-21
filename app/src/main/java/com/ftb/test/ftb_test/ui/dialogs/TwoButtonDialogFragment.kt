@@ -67,7 +67,10 @@ class TwoButtonDialogFragment : DialogFragment() {
             team1View.text = it.team1Name
             team2View.text = it.team2Name
             yes.text = "Yes"
-            yes.setOnClickListener{_ -> notify(SELECTED_YES)}
+            yes.setOnClickListener{_ ->
+                notify(SELECTED_YES)
+                dismiss()
+            }
             no.text = "No "
             no.setOnClickListener{_ ->
                 notify(SELECTED_NO)

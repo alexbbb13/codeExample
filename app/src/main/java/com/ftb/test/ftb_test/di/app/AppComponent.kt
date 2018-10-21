@@ -25,7 +25,8 @@ import javax.inject.Singleton
 //    MatchesScreenModule::class,
 //    ResultsScreenModule::class,
 //    LocalizationModule::class,
-     MatchesModule::class,
+    MatchesModule::class,
+    PredictionsModule::class,
     ResultsModule::class,
 //    LoanModule::class,
 //    DepositModule::class,
@@ -33,7 +34,7 @@ import javax.inject.Singleton
     //RetrofitModule::class,
     ActivityBuilder::class,
     AndroidSupportInjectionModule::class,
-            AndroidInjectionModule::class
+    AndroidInjectionModule::class
 
 ])
 interface MyApplicationComponent : AndroidInjector<FtbApplication> {

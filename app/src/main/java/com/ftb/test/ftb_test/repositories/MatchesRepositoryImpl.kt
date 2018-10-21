@@ -1,10 +1,9 @@
 package com.ftb.test.ftb_test.repositories
 
 import com.ftb.test.ftb_test.data.localstorage.interfaces.MatchesLocalStorage
-import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.remotestorage.interfaces.MatchesRemoteStorage
-import com.ftb.test.ftb_test.utils.Math
+import io.reactivex.Completable
 import io.reactivex.Maybe
 import io.reactivex.Single
 
@@ -33,8 +32,8 @@ class MatchesRepositoryImpl(
         return localStorage.getMatches()
     }
 
-    override fun saveMatchesToDb(matches: List<MatchesBase>) {
-        localStorage.replaceMatches(matches)
+    override fun saveMatchesToDb(matches: List<MatchesBase>): Completable {
+        return localStorage.replaceMatches(matches)
     }
 
     override fun getMatchesFromNetwork(): Single<List<MatchesBase>> {
