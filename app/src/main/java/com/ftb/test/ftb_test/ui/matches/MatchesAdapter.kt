@@ -9,8 +9,6 @@ import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import android.text.method.TextKeyListener.clear
 import android.support.v7.util.DiffUtil
-import java.util.Collections.addAll
-
 
 class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         RecyclerView.Adapter<MatchesAdapter.ViewHolder>() {
@@ -19,7 +17,7 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
-    private var myDataset: MutableList<MatchesBase> = mutableListOf()
+    private var myDataset: List<MatchesBase> = mutableListOf()
 
     class ViewHolder(val layout: View,
                      val team1: TextView,
@@ -73,30 +71,23 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         holder.bind(item, listener);
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = myDataset.size
 
-//    fun setData (data: List<MatchesBase>){
-//        myDataset = data
-//        notifyDataSetChanged()
-//    }
-
-    fun setData (data: List<MatchesBase>) {
-        val diffCallback = MatchesDiffCallback(myDataset, data)
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
-        myDataset.clear()
-        myDataset.addAll(data)
-        diffResult.dispatchUpdatesTo(this)
+    fun setData (data: List<MatchesBase>){
+        myDataset = data
+        notifyDataSetChanged()
     }
+
+//    fun setData (data: List<MatchesBase>) {
+//        val diffCallback = MatchesDiffCallback(myDataset, data)
+//        val diffResult = DiffUtil.calculateDiff(diffCallback)
+//        myDataset.clear()
+//        myDataset.addAll(data)
+//        diffResult.dispatchUpdatesTo(this)
+//    }
 
     fun setText(view: TextView, value: Int){
         val text = if(value < 0) "" else value.toString()
         view.text = text
     }
-
-
-//    interface OnItemClickListener {
-//        fun onItemClick(item: MatchesBase)
-//    }
-
 }

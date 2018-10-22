@@ -19,12 +19,6 @@ class MatchesBase(
             dao.team2,
             BettingMath.hash(dao.team1, dao.team2))
 
-//    constructor(dao: MatchesBaseWithPredictionsBase) : this(dao.match!!.team1,
-//            dao.match!!.team2,
-//            BettingMath.hash(dao.match!!.team1, dao.match!!.team2),
-//            dao.predictionsList?.get(0)?.predictionTeam1,
-//            dao.predictionsList?.get(0)?.predictionTeam2){
-//    }
     companion object {
     fun from(dao: MatchesBaseWithPredictionsBase): MatchesBase{
         var pTeam1: Int = -1

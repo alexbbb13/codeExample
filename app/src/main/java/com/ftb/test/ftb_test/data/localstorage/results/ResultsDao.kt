@@ -1,6 +1,7 @@
 package com.ftb.test.ftb_test.data.localstorage.results
 
 import android.arch.persistence.room.*
+import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseWithPredictionsBase
 import io.reactivex.Single
 
 @Dao
@@ -20,6 +21,9 @@ interface ResultsDao {
         deleteBaseResultssAll()
         insertBaseResultss(items)
     }
+
+    @Query("SELECT * FROM ResultsBase")
+    fun getResultsBaseWithPredictionsBase(): Single<List<ResultsBaseWithPredictionsBase>>
 
     @Query("DELETE FROM ResultsBase")
     fun deleteBaseResultssAll()

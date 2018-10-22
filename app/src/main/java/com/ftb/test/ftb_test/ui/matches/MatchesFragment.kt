@@ -25,7 +25,7 @@ import dagger.android.support.DaggerFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_matches.*
-import kotlinx.android.synthetic.main.fragment_recyclerview.*
+import kotlinx.android.synthetic.main.fragment_results.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -64,6 +64,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
 
     override fun setData(items: List<MatchesBase>) {
         adapter.setData(items)
+        adapter.notifyDataSetChanged()
     }
 
     override fun beginMatchSelection(team1: String, team2: String, team1_prediction: Int?, team2_prediction: Int?) {
@@ -79,4 +80,5 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
     override fun switchResultsButton(predictionsExist: Boolean) {
         resultsButton.visibility = if(predictionsExist) View.VISIBLE else View.GONE
     }
+
 }

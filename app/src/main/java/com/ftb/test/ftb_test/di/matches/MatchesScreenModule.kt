@@ -9,13 +9,14 @@ import com.ftb.test.ftb_test.repositories.PredictionsRepository
 import com.ftb.test.ftb_test.repositories.ResultsRepository
 import dagger.Module
 import dagger.Provides
+import ru.terrakok.cicerone.Cicerone
 import javax.inject.Singleton
 
 @Module
 class MatchesScreenModule {
 
     @Provides
-    fun provideMatchesPresenter(interactor: MatchesInteractor, router: AppRouter) = MatchesPresenter(interactor, router)
+    fun provideMatchesPresenter(interactor: MatchesInteractor, cicerone: Cicerone<AppRouter>) = MatchesPresenter(interactor, cicerone)
 
     @Provides
     fun provideMatchesInteractor(repositoryMatches: MatchesRepository, repositoryP: PredictionsRepository)  : MatchesInteractor

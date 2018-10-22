@@ -1,5 +1,6 @@
 package com.ftb.test.ftb_test.ui.results
 
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,25 +11,25 @@ import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.ResultBase
 
-class ResultsAdapter() :
+class ResultsAdapter :
         RecyclerView.Adapter<ResultsAdapter.ViewHolder>() {
-    private lateinit var myDataset: List<ResultBase>
+    private var myDataset: List<ResultBase> = emptyList()
 
-    class ViewHolder(val relativeLayout: RelativeLayout,
+    class ViewHolder(val layout: ConstraintLayout,
                      val team1: TextView,
                      val team2: TextView,
                      val score1: TextView,
                      val score2: TextView,
                      val prediction1: TextView,
                      val prediction2: TextView
-                     ) : RecyclerView.ViewHolder(relativeLayout){
+                     ) : RecyclerView.ViewHolder(layout){
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): ResultsAdapter.ViewHolder {
         val root = LayoutInflater.from(parent.context)
-                .inflate(R.layout.layout_list_item_results, parent, false) as RelativeLayout
+                .inflate(R.layout.layout_list_item_results, parent, false) as ConstraintLayout
         val team1 = root.findViewById<TextView>(R.id.tv_team1)
         val team2 = root.findViewById<TextView>(R.id.tv_team2)
         val score1 = root.findViewById<TextView>(R.id.tv_score1)
@@ -61,7 +62,7 @@ class ResultsAdapter() :
     }
 
     fun setText(view: TextView, value: Int){
-        val text = if(value < 0) value.toString() else "?"
+        val text = if(value >= 0) value.toString() else " "
         view.text = text
     }
 
