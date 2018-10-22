@@ -9,8 +9,6 @@ import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import android.text.method.TextKeyListener.clear
 import android.support.v7.util.DiffUtil
-import java.util.Collections.addAll
-
 
 class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         RecyclerView.Adapter<MatchesAdapter.ViewHolder>() {

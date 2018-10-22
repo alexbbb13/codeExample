@@ -1,5 +1,6 @@
 package com.ftb.test.ftb_test.presenters
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.ftb.test.ftb_test.application.FtbApplication
@@ -7,6 +8,7 @@ import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.ResultBase
 import com.ftb.test.ftb_test.interactors.ResultsInteractor
 import com.ftb.test.ftb_test.navigation.FtbNavigator
+import com.ftb.test.ftb_test.ui.matches.MatchesDiffCallback
 import com.ftb.test.ftb_test.ui.results.ResultsView
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
 @InjectViewState
 class ResultsPresenter constructor(val interactor: ResultsInteractor) : MvpPresenter<ResultsView>() {
 
-    lateinit var cachedData :List <ResultBase>;
+    var cachedData :List <ResultBase>? = null;
 
     override fun attachView(view: ResultsView?) {
         super.attachView(view)
@@ -26,9 +28,10 @@ class ResultsPresenter constructor(val interactor: ResultsInteractor) : MvpPrese
     }
 
     private fun onComplete(data: List <ResultBase>){
-        cachedData = data;
+        if (cachedData == null) cachedData = data;
         store(data)
-        viewState.setData(data)
+        update(data)
+        viewState.setData(cachedData!!)
     }
 
     private fun onError(t: Throwable){
@@ -45,4 +48,26 @@ class ResultsPresenter constructor(val interactor: ResultsInteractor) : MvpPrese
     fun returnButtonClicked() {
         FtbApplication.INSTANCE.getRouter().replaceScreen(FtbNavigator.MATCHES)
     }
+
+    fun update(data: List <ResultBase>){
+        data.forEach({
+            updateCache(it)
+        })
+    }
+
+    private fun updateCache(item: ResultBase){
+        cachedData!!.forEach({
+            if (it.matchHash == item.matchHash) {
+                if(it.team1=="Paris") {
+                    Log.d("TTTT", cachedData.toString())
+                }
+                if (it.team1_prediction == null) it.team1_prediction = item.team1_prediction
+                if (it.team2_prediction == null) it.team2_prediction = item.team2_prediction
+                if (it.team1_prediction != item.team1_prediction && item.team1_prediction != -1) it.team1_prediction = item.team1_prediction
+                if (it.team2_prediction != item.team2_prediction && item.team2_prediction != -1) it.team2_prediction = item.team2_prediction
+            }
+        })
+    }
+
+
 }

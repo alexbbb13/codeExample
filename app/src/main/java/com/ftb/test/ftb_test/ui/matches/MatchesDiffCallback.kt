@@ -8,6 +8,36 @@ import com.ftb.test.ftb_test.data.models.MatchesBase
 
 class MatchesDiffCallback(private val mOldMatchList: List<MatchesBase>, private val mNewMatchList: List<MatchesBase>) : DiffUtil.Callback() {
 
+    companion object {
+
+        fun compareSameItems(oldMatch: MatchesBase, newMatch: MatchesBase): Boolean {
+            if (oldMatch.matchHash != newMatch.matchHash) return false
+             return true;
+            //logData("areItemsTheSame", oldMatch, newMatch)
+            return !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
+                    shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
+
+            //return mOldMatchList[oldItemPosition].matchHash == mNewMatchList[newItemPosition].matchHash
+        }
+
+        fun compareSameContents(oldMatch: MatchesBase, newMatch: MatchesBase): Boolean {
+            if (oldMatch.matchHash != newMatch.matchHash) return false
+            //  return true;
+            //logData("areItemsTheSame", oldMatch, newMatch)
+            return !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
+                    shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
+
+            //return mOldMatchList[oldItemPosition].matchHash == mNewMatchList[newItemPosition].matchHash
+        }
+        fun shouldUpdate(old: Int?, new: Int?): Boolean {
+            if( new == null || new == -1 ) return false;
+            // new > 0
+            if( old == null || old == -1 ) return true;
+            //old > 0 && new > 0
+            return old != new
+        }
+    }
+
     override fun getOldListSize(): Int {
         return mOldMatchList.size
     }
@@ -21,10 +51,10 @@ class MatchesDiffCallback(private val mOldMatchList: List<MatchesBase>, private 
         val oldMatch = mOldMatchList[oldItemPosition]
         val newMatch = mNewMatchList[newItemPosition]
         if (oldMatch.matchHash != newMatch.matchHash) return false
-        return true;
+      //  return true;
         logData("areItemsTheSame", oldMatch, newMatch)
-//        return !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
-//                shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
+        return !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
+                shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
 
         //return mOldMatchList[oldItemPosition].matchHash == mNewMatchList[newItemPosition].matchHash
     }
@@ -33,7 +63,7 @@ class MatchesDiffCallback(private val mOldMatchList: List<MatchesBase>, private 
         val flag = !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
                 shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
         Log.d("TTT", "${text} ${oldMatch.team1}-${oldMatch.team2} " +
-                "OLD: ${oldMatch.toString()}, NEW: ${newMatch.toString()}" +
+ //               "OLD: ${oldMatch.toString()}, NEW: ${newMatch.toString()}" +
                 "OLD ${oldMatch.team1_prediction}-${oldMatch.team2_prediction}" +
                 " VS NEW ${newMatch.team1_prediction}-${newMatch.team2_prediction} - ${flag}" )
 

@@ -12,22 +12,6 @@ class MatchesRepositoryImpl(
         private val localStorage: MatchesLocalStorage
 ) : MatchesRepository {
 
-//    override fun getLoanSchedules(loanId: String, clientId: String): Observable<List<LoanSchedule>> {
-//        return getLoanSchedulesFromDb(loanId).concatWith(getLoanSchedulesFromNetwork(loanId, clientId)).toObservable()
-//    }
-//
-//    override fun getLoanSchedulesFromDb(loanId: String): Single<List<LoanSchedule>> {
-//        return localStorage.getLoanSchedules(loanId)
-//                .map { it.map(this::dataToModel) }
-//    }
-//
-//    override fun getLoanSchedulesFromNetwork(loanId: String, clientId: String): Single<List<LoanSchedule>> {
-//        return remoteStorage.loadLoanSchedules(loanId, clientId)
-//            .flatMapCompletable { localStorage.replaceLoanSchedules(loanId, it) }
-//            .andThen(getLoanSchedulesFromDb(loanId))
-//    }
-
-
     override fun getMatchesFromDb(): Maybe<List<MatchesBase>> {
         return localStorage.getMatches()
     }

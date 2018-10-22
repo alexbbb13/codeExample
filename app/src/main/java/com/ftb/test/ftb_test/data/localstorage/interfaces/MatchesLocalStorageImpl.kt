@@ -13,13 +13,9 @@ class MatchesLocalStorageImpl(
 ) : MatchesLocalStorage {
 
     override fun getMatches(): Maybe<List<MatchesBase>> {
-//        return db.map(AppRoomDatabase::getMatchesDao)
-//                .flatMap { it.getBaseMatchess() }
-//                .flatMapMaybe { matches -> Maybe.just(matches.map { MatchesBase(it) }) }
                 return db.map(AppRoomDatabase::getMatchesDao)
                 .flatMap { it.getMatchesBaseWithPredictionsBase() }
                 .flatMapMaybe { matchesWithPredictions -> Maybe.just(matchesWithPredictions.map { MatchesBase.from(it) }) }
-
     }
 
     override fun replaceMatches(matches: List<MatchesBase>): Completable {

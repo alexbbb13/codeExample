@@ -1,7 +1,10 @@
 package com.ftb.test.ftb_test.data.models
 
+import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseWithPredictionsBase
 import com.ftb.test.ftb_test.data.localstorage.results.ResultsBaseDb
+import com.ftb.test.ftb_test.data.localstorage.results.ResultsBaseWithPredictionsBase
 import com.ftb.test.ftb_test.data.models.network.ResultNetworkDao
+import com.ftb.test.ftb_test.utils.BettingMath
 
 class ResultBase(
         val team1: String,
@@ -29,8 +32,24 @@ class ResultBase(
             -1) {
     }
 
-//    fun setPrediction(base: MatchesBase){
-//        team1_prediction = base.team1_prediction
-//        team2_prediction = base.team2_prediction
-//    }
+    companion object {
+        fun from(dao: ResultsBaseWithPredictionsBase): ResultBase{
+            var pTeam1: Int = -1
+            var pTeam2: Int = -1
+            dao.predictionsList?.let {
+                if(it.size > 0) {
+                    pTeam1 = it.get(0).predictionTeam1
+                    pTeam2 = it.get(0).predictionTeam2
+                }
+            }
+            return ResultBase(dao.result!!.team1,
+                    dao.result!!.team2,
+                    BettingMath.hash(dao.result!!.team1, dao.result!!.team2),
+                    dao.result!!.team1points,
+                    dao.result!!.team2points,
+                    pTeam1,
+                    pTeam2)
+
+        }
+    }
 }
