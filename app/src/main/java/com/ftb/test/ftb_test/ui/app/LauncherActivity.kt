@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import com.ftb.test.ftb_test.R
+import com.ftb.test.ftb_test.application.FtbApplication
 import com.ftb.test.ftb_test.extra.extraKey
 import com.ftb.test.ftb_test.navigation.FtbNavigator
 import dagger.android.support.DaggerAppCompatActivity
@@ -65,5 +66,15 @@ class LauncherActivity : DaggerAppCompatActivity() {
 //        } else {
             router.exit()
 //        }
+    }
+
+    override fun onResumeFragments() {
+        super.onResumeFragments()
+        FtbApplication.INSTANCE.getNavigatorHolder().setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        FtbApplication.INSTANCE.getNavigatorHolder().removeNavigator()
     }
 }

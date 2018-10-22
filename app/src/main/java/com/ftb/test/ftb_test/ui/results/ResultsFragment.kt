@@ -3,6 +3,7 @@ package com.ftb.test.ftb_test.ui.results
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,9 @@ class ResultsFragment: BaseFragment(), ResultsView {
         return presenter
     }
 
+    lateinit var recyclerView: RecyclerView
+    val resultsAdapter = ResultsAdapter()
+
    override fun onAttach(context: Context?) {
         super.onAttach(context)
         AndroidSupportInjection.inject(this)
@@ -38,12 +42,13 @@ class ResultsFragment: BaseFragment(), ResultsView {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_recyclerview, container, false)
-        recycler_view.adapter = ResultsAdapter()
-        recycler_view.layoutManager = LinearLayoutManager(context)
+        recyclerView = root.findViewById(R.id.recycler_view)
+        recyclerView.adapter = resultsAdapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
         return root
     }
 
     override fun setData(items: List<ResultBase>) {
-        (recycler_view.adapter as ResultsAdapter).setData(items)
+        resultsAdapter.setData(items)
     }
 }

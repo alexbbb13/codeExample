@@ -12,7 +12,7 @@ import com.ftb.test.ftb_test.data.models.ResultBase
 
 class ResultsAdapter() :
         RecyclerView.Adapter<ResultsAdapter.ViewHolder>() {
-    private lateinit var myDataset: List<ResultBase>
+    private var myDataset: List<ResultBase> = emptyList()
 
     class ViewHolder(val relativeLayout: RelativeLayout,
                      val team1: TextView,

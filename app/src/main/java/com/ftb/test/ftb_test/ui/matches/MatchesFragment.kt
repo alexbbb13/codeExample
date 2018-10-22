@@ -79,4 +79,5 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
     override fun switchResultsButton(predictionsExist: Boolean) {
         resultsButton.visibility = if(predictionsExist) View.VISIBLE else View.GONE
     }
+
 }

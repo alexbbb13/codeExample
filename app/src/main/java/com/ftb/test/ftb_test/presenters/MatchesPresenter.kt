@@ -3,6 +3,7 @@ package com.ftb.test.ftb_test.presenters
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.ftb.test.ftb_test.application.FtbApplication
 import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.PredictionBase
@@ -90,6 +91,7 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicero
     }
 
     fun resultsButtonClicked() {
-        cicerone.router.navigateTo(FtbNavigator.RESULTS)
+        FtbApplication.INSTANCE.getRouter().navigateTo(FtbNavigator.RESULTS)
+        //cicerone.router.navigateTo(FtbNavigator.RESULTS)
     }
 }
