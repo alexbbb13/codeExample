@@ -1,5 +1,7 @@
 package com.ftb.test.ftb_test.di.app
 
+import com.ftb.test.ftb_test.data.limiter.NetworkLimiter
+import com.ftb.test.ftb_test.data.limiter.NetworkLimiterImpl
 import com.ftb.test.ftb_test.data.localstorage.app.AppRoomDatabase
 import com.ftb.test.ftb_test.data.localstorage.interfaces.MatchesLocalStorage
 import com.ftb.test.ftb_test.data.localstorage.interfaces.MatchesLocalStorageImpl
@@ -40,7 +42,5 @@ class MatchesModule {
     @Provides
     @Singleton
     fun provideMatchesLocalStorage(db: Single<AppRoomDatabase>) : MatchesLocalStorage = MatchesLocalStorageImpl(db)
-
-
 }
 

@@ -1,5 +1,7 @@
 package com.ftb.test.ftb_test.di.app
 
+import com.ftb.test.ftb_test.data.limiter.NetworkLimiter
+import com.ftb.test.ftb_test.data.limiter.NetworkLimiterImpl
 import com.ftb.test.ftb_test.data.remotestorage.MatchesApi
 import dagger.Module
 import dagger.Provides
@@ -40,5 +42,9 @@ class NetworkModule {
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         return httpLoggingInterceptor;
     }
+
+    @Provides
+    @Singleton
+    fun provideNetworkLimiter() : NetworkLimiter = NetworkLimiterImpl()
 }
 
