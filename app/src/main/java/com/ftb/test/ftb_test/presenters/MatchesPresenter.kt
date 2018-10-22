@@ -14,10 +14,11 @@ import com.ftb.test.ftb_test.ui.matches.MatchesView
 import com.ftb.test.ftb_test.utils.BettingMath
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import ru.terrakok.cicerone.Cicerone
 import java.lang.RuntimeException
 
 @InjectViewState
-class MatchesPresenter constructor(val interactor: MatchesInteractor, val router: AppRouter) : MvpPresenter<MatchesView>() {
+class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicerone: Cicerone<AppRouter>) : MvpPresenter<MatchesView>() {
 
 
     var predictionsExist = false;
@@ -89,6 +90,6 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val router
     }
 
     fun resultsButtonClicked() {
-        router.navigateTo(FtbNavigator.RESULTS)
+        cicerone.router.navigateTo(FtbNavigator.RESULTS)
     }
 }

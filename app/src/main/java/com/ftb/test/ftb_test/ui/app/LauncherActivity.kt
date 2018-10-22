@@ -37,6 +37,7 @@ class LauncherActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         //AndroidInjection.inject(this) //before calling super!!!!!!!!!!!!!
         super.onCreate(savedInstanceState)
+        navigatorHolder.setNavigator(navigator)
         setContentView(R.layout.activity_fragment_container)
         if (savedInstanceState == null) {
             initiateFragment()
@@ -47,13 +48,13 @@ class LauncherActivity : DaggerAppCompatActivity() {
         router.newRootScreen(FtbNavigator.MATCHES, null)
     }
 
-    override fun onResume() {
-        super.onResume()
-        navigatorHolder.setNavigator(navigator)
-    }
+//    override fun onCreate() {
+//        super.onResume()
+//        navigatorHolder.setNavigator(navigator)
+//    }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onDestroy() {
+        super.onDestroy()
         navigatorHolder.removeNavigator()
     }
 

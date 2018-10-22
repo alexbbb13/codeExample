@@ -10,8 +10,8 @@ import javax.inject.Singleton
 class CiceroneModule {
     @Provides
     @Singleton
-    fun provideCicerone(): Cicerone<AppRouter> {
-        return Cicerone.create(AppRouter())
+    fun provideCicerone(router: AppRouter): Cicerone<AppRouter> {
+        return Cicerone.create(router)
     }
 
     @Provides
