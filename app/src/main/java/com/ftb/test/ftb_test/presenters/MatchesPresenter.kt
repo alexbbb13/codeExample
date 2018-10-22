@@ -7,6 +7,7 @@ import com.ftb.test.ftb_test.application.FtbApplication
 import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.PredictionBase
+import com.ftb.test.ftb_test.data.models.ResultBase
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
 import com.ftb.test.ftb_test.navigation.AppRouter
 import com.ftb.test.ftb_test.navigation.FtbNavigator
@@ -23,6 +24,8 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicero
 
 
     var predictionsExist = false;
+    var cachedData :List <MatchesBase>? = null;
+
 
     override fun attachView(view: MatchesView?) {
         super.attachView(view)
@@ -30,10 +33,12 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicero
     }
 
     private fun onComplete(data: List<MatchesBase>) {
+        if(cachedData == null) cachedData = data
         store(data)
         checkPredictionsExist(data)
         viewState.switchResultsButton(predictionsExist)
-        viewState.setData(data)
+        update(data)
+        viewState.setData(cachedData!!)
     }
 
     private fun checkPredictionsExist(data: List<MatchesBase>) {
@@ -87,4 +92,22 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicero
         FtbApplication.INSTANCE.getRouter().replaceScreen(FtbNavigator.RESULTS)
         //cicerone.router.navigateTo(FtbNavigator.RESULTS)
     }
+
+    fun update(data: List <MatchesBase>){
+        data.forEach({
+            updateCache(it)
+        })
+    }
+
+    private fun updateCache(item: MatchesBase){
+        cachedData!!.forEach({
+            if (it.matchHash == item.matchHash) {
+                if (it.team1_prediction == null) it.team1_prediction = item.team1_prediction
+                if (it.team2_prediction == null) it.team2_prediction = item.team2_prediction
+                if (it.team1_prediction != item.team1_prediction && item.team1_prediction != -1 && item.team1_prediction != null) it.team1_prediction = item.team1_prediction
+                if (it.team2_prediction != item.team2_prediction && item.team2_prediction != -1 && item.team2_prediction != null) it.team2_prediction = item.team2_prediction
+            }
+        })
+    }
+
 }

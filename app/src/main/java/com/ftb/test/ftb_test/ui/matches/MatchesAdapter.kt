@@ -17,7 +17,7 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder.
     // Each data item is just a string in this case that is shown in a TextView.
-    private var myDataset: MutableList<MatchesBase> = mutableListOf()
+    private var myDataset: List<MatchesBase> = mutableListOf()
 
     class ViewHolder(val layout: View,
                      val team1: TextView,
@@ -73,18 +73,18 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
 
     override fun getItemCount() = myDataset.size
 
-//    fun setData (data: List<MatchesBase>){
-//        myDataset = data
-//        notifyDataSetChanged()
-//    }
-
-    fun setData (data: List<MatchesBase>) {
-        val diffCallback = MatchesDiffCallback(myDataset, data)
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
-        myDataset.clear()
-        myDataset.addAll(data)
-        diffResult.dispatchUpdatesTo(this)
+    fun setData (data: List<MatchesBase>){
+        myDataset = data
+        notifyDataSetChanged()
     }
+
+//    fun setData (data: List<MatchesBase>) {
+//        val diffCallback = MatchesDiffCallback(myDataset, data)
+//        val diffResult = DiffUtil.calculateDiff(diffCallback)
+//        myDataset.clear()
+//        myDataset.addAll(data)
+//        diffResult.dispatchUpdatesTo(this)
+//    }
 
     fun setText(view: TextView, value: Int){
         val text = if(value < 0) "" else value.toString()

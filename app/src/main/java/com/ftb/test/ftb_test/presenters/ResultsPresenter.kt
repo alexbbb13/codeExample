@@ -58,13 +58,10 @@ class ResultsPresenter constructor(val interactor: ResultsInteractor) : MvpPrese
     private fun updateCache(item: ResultBase){
         cachedData!!.forEach({
             if (it.matchHash == item.matchHash) {
-                if(it.team1=="Paris") {
-                    Log.d("TTTT", cachedData.toString())
-                }
                 if (it.team1_prediction == null) it.team1_prediction = item.team1_prediction
                 if (it.team2_prediction == null) it.team2_prediction = item.team2_prediction
-                if (it.team1_prediction != item.team1_prediction && item.team1_prediction != -1) it.team1_prediction = item.team1_prediction
-                if (it.team2_prediction != item.team2_prediction && item.team2_prediction != -1) it.team2_prediction = item.team2_prediction
+                if (it.team1_prediction != item.team1_prediction && item.team1_prediction != -1 && item.team1_prediction != null) it.team1_prediction = item.team1_prediction
+                if (it.team2_prediction != item.team2_prediction && item.team2_prediction != -1 && item.team2_prediction != null) it.team2_prediction = item.team2_prediction
             }
         })
     }
