@@ -36,8 +36,8 @@ class ResultsFragment: BaseFragment(), ResultsView {
     val resultsAdapter = ResultsAdapter()
 
    override fun onAttach(context: Context?) {
+       AndroidSupportInjection.inject(this)
         super.onAttach(context)
-        AndroidSupportInjection.inject(this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,5 +52,6 @@ class ResultsFragment: BaseFragment(), ResultsView {
 
     override fun setData(items: List<ResultBase>) {
         resultsAdapter.setData(items)
+        resultsAdapter.notifyDataSetChanged()
     }
 }

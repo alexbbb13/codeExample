@@ -73,7 +73,6 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         holder.bind(item, listener);
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = myDataset.size
 
 //    fun setData (data: List<MatchesBase>){
@@ -93,10 +92,4 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         val text = if(value < 0) "" else value.toString()
         view.text = text
     }
-
-
-//    interface OnItemClickListener {
-//        fun onItemClick(item: MatchesBase)
-//    }
-
 }

@@ -64,6 +64,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
 
     override fun setData(items: List<MatchesBase>) {
         adapter.setData(items)
+        adapter.notifyDataSetChanged()
     }
 
     override fun beginMatchSelection(team1: String, team2: String, team1_prediction: Int?, team2_prediction: Int?) {
