@@ -21,10 +21,6 @@ class FtbNavigator(val manager: FragmentManager, private val containerId: Int): 
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    //    override fun createActivityIntent(screenKey: String?, data: Any?): Intent {
-//        return Intent()
-//    }
-//
     companion object {
         val MATCHES by extraKey()
         val RESULTS by extraKey()
@@ -39,6 +35,4 @@ class FtbNavigator(val manager: FragmentManager, private val containerId: Int): 
             }
         }
     }
-//
-//    class Over(val screenKey: String, val transitionData: Any?) : Command
 }

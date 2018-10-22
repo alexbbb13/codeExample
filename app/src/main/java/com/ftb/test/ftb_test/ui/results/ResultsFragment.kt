@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -15,7 +16,6 @@ import com.ftb.test.ftb_test.data.models.ResultBase
 import com.ftb.test.ftb_test.presenters.ResultsPresenter
 import com.ftb.test.ftb_test.ui.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection
-import kotlinx.android.synthetic.main.fragment_recyclerview.*
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -41,10 +41,12 @@ class ResultsFragment: BaseFragment(), ResultsView {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_recyclerview, container, false)
+        val root = inflater.inflate(R.layout.fragment_results, container, false)
         recyclerView = root.findViewById(R.id.recycler_view)
         recyclerView.adapter = resultsAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
+        var returnButton = root.findViewById<Button>(R.id.bt_return)
+        returnButton.setOnClickListener { presenter.returnButtonClicked()}
         return root
     }
 

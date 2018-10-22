@@ -61,7 +61,7 @@ class ResultsAdapter() :
     }
 
     fun setText(view: TextView, value: Int){
-        val text = if(value < 0) value.toString() else "?"
+        val text = if(value > 0) value.toString() else " "
         view.text = text
     }
 

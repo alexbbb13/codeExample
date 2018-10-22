@@ -66,13 +66,6 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicero
                 .subscribe(this::onComplete, this::onError)
     }
 
-//    private fun checkAndReplaceScores(matchReplace: MatchesBase, matchHash: Int, score1: Int, score2: Int) {
-//        if (matchReplace.matchHash == matchHash) {
-//            matchReplace.team1_prediction = score1
-//            matchReplace.team2_prediction = score2
-//        }
-//    }
-
     fun selectedMatch(item: MatchesBase) {
         viewState.beginMatchSelection(item.team1, item.team2, item.team1_prediction, item.team2_prediction)
     }
@@ -91,7 +84,7 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicero
     }
 
     fun resultsButtonClicked() {
-        FtbApplication.INSTANCE.getRouter().navigateTo(FtbNavigator.RESULTS)
+        FtbApplication.INSTANCE.getRouter().replaceScreen(FtbNavigator.RESULTS)
         //cicerone.router.navigateTo(FtbNavigator.RESULTS)
     }
 }
