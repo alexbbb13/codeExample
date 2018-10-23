@@ -2,7 +2,6 @@ package com.ftb.test.ftb_test.di.app
 
 import com.ftb.test.ftb_test.data.limiter.NetworkLimiter
 import com.ftb.test.ftb_test.data.limiter.NetworkLimiterImpl
-import com.ftb.test.ftb_test.data.remotestorage.MatchesApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -14,7 +13,6 @@ import javax.inject.Singleton
 
 @Module
 class NetworkModule {
-
 
     @Provides
     @Singleton

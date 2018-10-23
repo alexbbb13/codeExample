@@ -9,10 +9,10 @@ import io.reactivex.Observable
 class ResultsInteractorImpl(val repositoryResults: ResultsRepository, val networkLimiter: NetworkLimiter) : ResultsInteractor {
 
     override fun getResults(): Observable<List<ResultBase>> {
-        if (networkLimiter.isLimited()) {
+        if (networkLimiter.isPredictionNetworkLimited()) {
             return repositoryResults.getResultsFromDb().toObservable()
         } else {
-            networkLimiter.resetLimit()
+            networkLimiter.resetPredictionNetworkLimit()
             return repositoryResults.getResultsFromDb().toObservable().concatWith(repositoryResults.getResultsFromNetwork())
         }
     }

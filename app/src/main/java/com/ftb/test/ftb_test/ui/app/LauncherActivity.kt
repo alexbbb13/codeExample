@@ -49,23 +49,13 @@ class LauncherActivity : DaggerAppCompatActivity() {
         router.newRootScreen(FtbNavigator.MATCHES, null)
     }
 
-//    override fun onCreate() {
-//        super.onResume()
-//        navigatorHolder.setNavigator(navigator)
-//    }
-
     override fun onDestroy() {
         super.onDestroy()
         navigatorHolder.removeNavigator()
     }
 
     override fun onBackPressed() {
-//        val fragment = supportFragmentManager.findFragmentById(FRAGMENT_CONTAINER_ID)
-//        if (fragment?.instanceIf<BackButtonListener>()?.consumeBackButton() == true) {
-//            return
-//        } else {
-            router.exit()
-//        }
+        router.exit()
     }
 
     override fun onResumeFragments() {

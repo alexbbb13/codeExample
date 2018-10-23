@@ -6,14 +6,6 @@ import io.reactivex.Single
 @Dao
 interface MatchesDao {
 
-    /*
-    @Query("SELECT * FROM CardBase B LEFT JOIN CardMinPayment P ON (B.accountNumber = P.paymentAccountNumber)")
-    fun getBaseCardsWithMinPayment(): Single<List<CardBaseWithMinPaymentDb>>
-
-    @Query("SELECT * FROM MatchesBase B LEFT JOIN PredistionsBase P ON (B.hashCode = P.hashCode)")
-    fun getMatchesBaseWithPredictionsBase(): Single<List<MatchesDaoWithPredictionDao>>
-     */
-
     @Query("SELECT * FROM MatchesBase")
     fun getBaseMatchess(): Single<List<MatchesBaseDb>>
 

@@ -10,16 +10,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBuilder {
 
-    //    @ContributesAndroidInjector
-//    abstract fun bindMBActivity(): SovcomActivity
-//    @ContributesAndroidInjector
-//    abstract fun bindMBFragmentContainerActivity(): SovcomFragmentContainerActivity
-    /**
-     * Example:
-     * @ContributesAndroidInjector(modules = [NameModule::class])
-     * abstract fun bindNameActivity(): NameActivity
-     * */
-
     @ContributesAndroidInjector(modules = [])
     abstract fun contributeLauncherActivityInjector(): LauncherActivity
 

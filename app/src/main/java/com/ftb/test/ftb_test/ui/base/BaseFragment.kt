@@ -3,7 +3,6 @@ package com.ftb.test.ftb_test.ui.base
 import android.support.v4.app.Fragment
 import com.arellomobile.mvp.MvpAppCompatFragment
 import dagger.android.AndroidInjector
-import dagger.android.DaggerFragment
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
@@ -16,5 +15,4 @@ open class BaseFragment : MvpAppCompatFragment(), HasSupportFragmentInjector {
     override fun supportFragmentInjector(): AndroidInjector<Fragment> {
         return childFragmentInjector
     }
-
 }

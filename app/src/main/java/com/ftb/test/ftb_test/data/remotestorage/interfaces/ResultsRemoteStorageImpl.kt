@@ -1,8 +1,6 @@
 package com.ftb.test.ftb_test.data.remotestorage.interfaces
 
-import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.ResultBase
-import com.ftb.test.ftb_test.data.models.network.MatchesNetworkDaoList
 import com.ftb.test.ftb_test.data.models.network.ResultsNetworkDaoList
 import com.ftb.test.ftb_test.data.remotestorage.ResultsApi
 import io.reactivex.Single

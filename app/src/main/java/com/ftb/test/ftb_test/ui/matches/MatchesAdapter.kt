@@ -13,10 +13,6 @@ import android.support.v7.util.DiffUtil
 class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         RecyclerView.Adapter<MatchesAdapter.ViewHolder>() {
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder.
-    // Each data item is just a string in this case that is shown in a TextView.
     private var myDataset: List<MatchesBase> = mutableListOf()
 
     class ViewHolder(val layout: View,
@@ -38,10 +34,8 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         }
     }
 
-    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int): MatchesAdapter.ViewHolder {
-        // create a new view
         val root = LayoutInflater.from(parent.context)
                 .inflate(R.layout.layout_list_item_matches, parent, false)
         val team1 = root.findViewById<TextView>(R.id.tv_team1)
@@ -49,15 +43,11 @@ class MatchesAdapter(val listener: (MatchesBase) -> Unit) :
         val prediction1 = root.findViewById<TextView>(R.id.tv_prediction1)
         val prediction2 = root.findViewById<TextView>(R.id.tv_prediction2)
         val predictionDash = root.findViewById<TextView>(R.id.tv_dash_lower)
-        // set the view's size, margins, paddings and layout parameters
 
         return ViewHolder(root, team1, team2, prediction1, predictionDash, prediction2)
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
         val item  = myDataset[position]
         holder.team1.text = item.team1
         holder.team2.text = item.team2

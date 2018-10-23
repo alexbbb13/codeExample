@@ -1,7 +1,6 @@
 package com.ftb.test.ftb_test.data.localstorage.results
 
 import android.arch.persistence.room.*
-import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseWithPredictionsBase
 import io.reactivex.Single
 
 @Dao

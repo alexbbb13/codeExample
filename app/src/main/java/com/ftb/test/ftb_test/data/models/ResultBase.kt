@@ -19,8 +19,8 @@ class ResultBase(
             dao.team1.hashCode().xor(dao.team2.hashCode()),
             dao.team1_points,
             dao.team2_points,
-            -1,
-            -1) {
+            Constants.NO_SCORE,
+            Constants.NO_SCORE) {
     }
 
     constructor(dao: ResultsBaseDb) : this(dao.team1,
@@ -28,14 +28,14 @@ class ResultBase(
             dao.team1.hashCode().xor(dao.team2.hashCode()),
             dao.team1points,
             dao.team2points,
-            -1,
-            -1) {
+            Constants.NO_SCORE,
+            Constants.NO_SCORE) {
     }
 
     companion object {
         fun from(dao: ResultsBaseWithPredictionsBase): ResultBase{
-            var pTeam1: Int = -1
-            var pTeam2: Int = -1
+            var pTeam1: Int = Constants.NO_SCORE
+            var pTeam2: Int = Constants.NO_SCORE
             dao.predictionsList?.let {
                 if(it.size > 0) {
                     pTeam1 = it.get(0).predictionTeam1

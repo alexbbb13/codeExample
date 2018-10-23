@@ -1,7 +1,6 @@
 package com.ftb.test.ftb_test.ui.matches
 
 import com.arellomobile.mvp.MvpView
-import com.arellomobile.mvp.viewstate.strategy.SingleStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.SkipStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.ftb.test.ftb_test.data.models.MatchesBase

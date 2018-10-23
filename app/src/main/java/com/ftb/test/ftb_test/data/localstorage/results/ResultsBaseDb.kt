@@ -1,7 +1,6 @@
 package com.ftb.test.ftb_test.data.localstorage.results
 
 import android.arch.persistence.room.Entity
-import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.ResultBase
 
 @Entity(tableName = "ResultsBase", primaryKeys = ["matchHash"])

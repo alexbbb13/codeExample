@@ -1,6 +1,8 @@
 package com.ftb.test.ftb_test.data.limiter
 
 interface NetworkLimiter {
-    fun isLimited():Boolean
-    fun resetLimit()
+    fun isMatchNetworkLimited():Boolean
+    fun isPredictionNetworkLimited():Boolean
+    fun resetMatchNetworkLimit()
+    fun resetPredictionNetworkLimit()
 }

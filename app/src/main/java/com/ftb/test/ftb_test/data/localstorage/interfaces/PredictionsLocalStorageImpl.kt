@@ -1,13 +1,9 @@
 package com.ftb.test.ftb_test.data.localstorage.interfaces
 
 import com.ftb.test.ftb_test.data.localstorage.app.AppRoomDatabase
-import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.localstorage.matches.PredictionsBaseDb
-import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.PredictionBase
 import io.reactivex.Completable
-import io.reactivex.Maybe
-import io.reactivex.Scheduler
 import io.reactivex.Single
 
 class PredictionsLocalStorageImpl(

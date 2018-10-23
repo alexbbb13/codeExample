@@ -4,11 +4,8 @@ import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.TextView
 import com.ftb.test.ftb_test.R
-import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
-import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.ResultBase
 
 class ResultsAdapter :
@@ -41,10 +38,7 @@ class ResultsAdapter :
         return ViewHolder(root, team1, team2, score1, score2, prediction1, prediction2)
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
         val item  = myDataset[position]
         holder.team1.text = item.team1
         holder.team2.text = item.team2
@@ -54,7 +48,6 @@ class ResultsAdapter :
         setText(holder.prediction2, item.team2_prediction)
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = myDataset.size
 
     fun setData (data: List<ResultBase>){

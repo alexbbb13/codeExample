@@ -12,8 +12,6 @@ import android.widget.TextView
 import com.ftb.test.ftb_test.R
 import com.ftb.test.ftb_test.extra.extraKey
 import kotlinx.android.parcel.Parcelize
-import kotlinx.android.synthetic.main.dialog_two_buttons_ft.*
-import kotlinx.android.synthetic.main.dialog_two_buttons_ft.view.*
 
 
 class TwoButtonDialogFragment : DialogFragment() {
@@ -48,7 +46,6 @@ class TwoButtonDialogFragment : DialogFragment() {
     lateinit var score2View : TextView
     var score1: Int = 0
     var score2: Int = 0
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

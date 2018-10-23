@@ -1,18 +1,13 @@
 package com.ftb.test.ftb_test.data.localstorage.matches
 
-import android.arch.persistence.room.*
+import android.arch.persistence.room.Dao
+import android.arch.persistence.room.Insert
+import android.arch.persistence.room.OnConflictStrategy
+import android.arch.persistence.room.Query
 import io.reactivex.Single
 
 @Dao
 interface PredictionsDao {
-
-    /*
-    @Query("SELECT * FROM CardBase B LEFT JOIN CardMinPayment P ON (B.accountNumber = P.paymentAccountNumber)")
-    fun getBaseCardsWithMinPayment(): Single<List<CardBaseWithMinPaymentDb>>
-
-    @Query("SELECT * FROM MatchesBase B LEFT JOIN PredistionsBase P ON (B.hashCode = P.hashCode)")
-    fun getMatchesBaseWithPredictionsBase(): Single<List<MatchesDaoWithPredictionDao>>
-     */
 
     @Query("SELECT * FROM PredictionsBase")
     fun getBasePredictions(): Single<List<PredictionsBaseDb>>

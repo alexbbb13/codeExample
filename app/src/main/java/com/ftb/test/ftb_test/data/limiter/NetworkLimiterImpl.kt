@@ -1,18 +1,26 @@
 package com.ftb.test.ftb_test.data.limiter
 
-import android.provider.SyncStateContract
 import com.ftb.test.ftb_test.data.models.Constants
 
 class NetworkLimiterImpl: NetworkLimiter {
     companion object {
-        var lastUpdated = 0L;
+        var lastMatchUpdated = 0L;
+        var lastPredictionUpdated = 0L;
     }
 
-    override fun isLimited():Boolean {
-        return (System.currentTimeMillis() - lastUpdated) < Constants.UPDATE_INTERVAL
+    override fun isMatchNetworkLimited():Boolean {
+        return (System.currentTimeMillis() - lastMatchUpdated) < Constants.UPDATE_INTERVAL
     }
 
-    override fun resetLimit() {
-        lastUpdated = System.currentTimeMillis()
+    override fun isPredictionNetworkLimited():Boolean {
+        return (System.currentTimeMillis() - lastPredictionUpdated) < Constants.UPDATE_INTERVAL
+    }
+
+    override fun resetMatchNetworkLimit() {
+        lastMatchUpdated = System.currentTimeMillis()
+    }
+
+    override fun resetPredictionNetworkLimit() {
+        lastPredictionUpdated = System.currentTimeMillis()
     }
 }

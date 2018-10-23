@@ -7,18 +7,17 @@ import com.ftb.test.ftb_test.repositories.MatchesRepository
 import com.ftb.test.ftb_test.repositories.PredictionsRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
-import io.reactivex.Single
 
 class MatchesInteractorImpl(val repositoryMatches: MatchesRepository,
                             val repositoryPredictions: PredictionsRepository,
                             val networkLimiter: NetworkLimiter) : MatchesInteractor {
 
     override fun getMatches(): Observable<List<MatchesBase>> {
-        if (networkLimiter.isLimited()) {
+        if (networkLimiter.isMatchNetworkLimited()) {
             return repositoryMatches.getMatchesFromDb().toObservable()
         } else {
             return repositoryMatches.getMatchesFromDb().toObservable().concatWith(repositoryMatches.getMatchesFromNetwork())
-            networkLimiter.resetLimit()
+            networkLimiter.resetMatchNetworkLimit()
         }
     }
 

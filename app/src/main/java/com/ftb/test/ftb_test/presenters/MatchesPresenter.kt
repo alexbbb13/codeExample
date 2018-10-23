@@ -1,13 +1,10 @@
 package com.ftb.test.ftb_test.presenters
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.ftb.test.ftb_test.application.FtbApplication
-import com.ftb.test.ftb_test.data.localstorage.matches.MatchesBaseDb
 import com.ftb.test.ftb_test.data.models.MatchesBase
 import com.ftb.test.ftb_test.data.models.PredictionBase
-import com.ftb.test.ftb_test.data.models.ResultBase
 import com.ftb.test.ftb_test.interactors.MatchesInteractor
 import com.ftb.test.ftb_test.navigation.AppRouter
 import com.ftb.test.ftb_test.navigation.FtbNavigator
@@ -17,7 +14,6 @@ import com.ftb.test.ftb_test.utils.BettingMath
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.terrakok.cicerone.Cicerone
-import java.lang.RuntimeException
 
 @InjectViewState
 class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicerone: Cicerone<AppRouter>) : MvpPresenter<MatchesView>() {
@@ -94,20 +90,20 @@ class MatchesPresenter constructor(val interactor: MatchesInteractor, val cicero
     }
 
     fun update(data: List <MatchesBase>){
-        data.forEach({
+        data.forEach {
             updateCache(it)
-        })
+        }
     }
 
     private fun updateCache(item: MatchesBase){
-        cachedData!!.forEach({
+        cachedData!!.forEach {
             if (it.matchHash == item.matchHash) {
                 if (it.team1_prediction == null) it.team1_prediction = item.team1_prediction
                 if (it.team2_prediction == null) it.team2_prediction = item.team2_prediction
                 if (it.team1_prediction != item.team1_prediction && item.team1_prediction != -1 && item.team1_prediction != null) it.team1_prediction = item.team1_prediction
                 if (it.team2_prediction != item.team2_prediction && item.team2_prediction != -1 && item.team2_prediction != null) it.team2_prediction = item.team2_prediction
             }
-        })
+        }
     }
 
 }

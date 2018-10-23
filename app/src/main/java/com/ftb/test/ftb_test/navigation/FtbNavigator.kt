@@ -18,7 +18,6 @@ class FtbNavigator(val manager: FragmentManager, private val containerId: Int): 
     }
 
     override fun showSystemMessage(message: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     companion object {
