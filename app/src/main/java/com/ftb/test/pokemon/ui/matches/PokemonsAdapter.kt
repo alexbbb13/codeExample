@@ -77,7 +77,7 @@ class PokemonsAdapter(val listener: (PokemonBase) -> Unit, val picasso: Picasso)
 
     fun setData (data: List<PokemonBase>){
         myDataset = data
-        notifyDataSetChanged()
+        //notifyDataSetChanged()
     }
 
 //    fun setData (data: List<MatchesBase>) {

@@ -12,17 +12,20 @@ class PokemonsInteractorImpl(val repositoryPokemons: PokemonsRepository,
                              val repositoryPredictions: PredictionsRepository,
                              val networkLimiter: NetworkLimiter) : PokemonsInteractor {
 
+    var currentOffset = 1
+    var currentLimit = 30
+
     override fun getPokemons(): Observable<List<PokemonBase>> {
-        var cache: List<PokemonBase>  //"https://pokeapi.co/api/v2/pokemon/1/" -> 1
-       = emptyList()
-        return repositoryPokemons.getPokemonsFromDb(1, 30).toObservable()
-            .doOnNext { cache = it }
-            .count()
-            .flatMapObservable {
-                when(it) {
-                    30L -> Observable.just(cache)
-                    else -> repositoryPokemons.getPokemonsFromNetwork(1, 30)
-                        .doOnNext { repositoryPokemons.savePokemonsToToDb(it) }
+        return repositoryPokemons.getPokemonsFromDb(currentOffset, currentLimit).toObservable()
+            .switchMap {
+                if(it.size>3) {
+                    currentOffset += currentLimit
+                    Observable.just(it)
+                } else {
+                    repositoryPokemons.getPokemonsFromNetwork(currentOffset, currentLimit)
+                        .doOnNext {
+                            currentOffset += currentLimit
+                        }
                 }
             }
 //        if (networkLimiter.isMatchNetworkLimited()) {
