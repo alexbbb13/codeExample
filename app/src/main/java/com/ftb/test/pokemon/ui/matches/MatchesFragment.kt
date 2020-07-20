@@ -12,10 +12,11 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.PresenterType
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.ftb.test.pokemon.R
-import com.ftb.test.pokemon.data.models.MatchesBase
+import com.ftb.test.pokemon.data.models.PokemonBase
 import com.ftb.test.pokemon.presenters.MatchesPresenter
 import com.ftb.test.pokemon.ui.base.BaseFragment
 import com.ftb.test.pokemon.ui.dialogs.TwoButtonDialogFragment
+import com.squareup.picasso.Picasso
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 import javax.inject.Provider
@@ -34,7 +35,8 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
         return presenter
     }
 
-    val adapter = MatchesAdapter(listener = {presenter.selectedMatch(it)})
+    val adapter = PokemonsAdapter(listener = {presenter.selectedMatch(it)}, picasso = Picasso.get())
+
     lateinit var resultsButton: Button;
 
    override fun onAttach(context: Context?) {
@@ -53,7 +55,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
         return root
     }
 
-    override fun setData(items: List<MatchesBase>) {
+    override fun setData(items: List<PokemonBase>) {
         adapter.setData(items)
         adapter.notifyDataSetChanged()
     }

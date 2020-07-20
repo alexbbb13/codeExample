@@ -18,7 +18,7 @@ import javax.inject.Singleton
     ActivityBuilder::class,
     FragmentBuilder::class,
     NavigationModule::class,
-    MatchesModule::class,
+    PokemonsModule::class,
     PredictionsModule::class,
     ResultsModule::class,
     CiceroneModule::class,

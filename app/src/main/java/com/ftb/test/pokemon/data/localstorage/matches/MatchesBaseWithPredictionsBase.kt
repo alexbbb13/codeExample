@@ -5,7 +5,7 @@ import android.arch.persistence.room.Relation
 
 class MatchesBaseWithPredictionsBase {
         @Embedded
-        var match: MatchesBaseDb? = null
+        var match: PokemonBaseDb? = null
         @Relation(parentColumn = "matchBaseHash", entityColumn = "predictionBaseHash", entity = PredictionsBaseDb::class)
         var predictionsList: List<PredictionsBaseDb>? = null
 }

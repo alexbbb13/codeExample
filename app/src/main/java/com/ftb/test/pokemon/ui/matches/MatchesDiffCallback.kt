@@ -4,9 +4,10 @@ import android.support.annotation.Nullable
 import android.support.v7.util.DiffUtil
 import android.util.Log
 import com.ftb.test.pokemon.data.models.MatchesBase
+import com.ftb.test.pokemon.data.models.PokemonBase
 
 
-class MatchesDiffCallback(private val mOldMatchList: List<MatchesBase>, private val mNewMatchList: List<MatchesBase>) : DiffUtil.Callback() {
+class MatchesDiffCallback(private val mOldMatchList: List<PokemonBase>, private val mNewMatchList: List<PokemonBase>) : DiffUtil.Callback() {
 
     override fun getOldListSize(): Int {
         return mOldMatchList.size
@@ -19,7 +20,7 @@ class MatchesDiffCallback(private val mOldMatchList: List<MatchesBase>, private 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldMatch = mOldMatchList[oldItemPosition]
         val newMatch = mNewMatchList[newItemPosition]
-        if (oldMatch.matchHash != newMatch.matchHash) return false
+        if (oldMatch.name != newMatch.name) return false
         return true
     }
 
@@ -27,11 +28,9 @@ class MatchesDiffCallback(private val mOldMatchList: List<MatchesBase>, private 
         val oldMatch = mOldMatchList[oldItemPosition]
         val newMatch = mNewMatchList[newItemPosition]
 
-        if (!oldMatch.matchHash.equals(newMatch.matchHash)) return false
-        logData("areContentsTheSame", oldMatch, newMatch)
-        //not overriding predictions from database
-        return !(shouldUpdate(oldMatch.team1_prediction, newMatch.team1_prediction) &&
-                shouldUpdate(oldMatch.team2_prediction, newMatch.team2_prediction))
+        if (oldMatch.name != newMatch.name || oldMatch.pictureUrl != newMatch.pictureUrl) return false
+        //logData("areContentsTheSame", oldMatch, newMatch)
+        return true
     }
 
     fun logData(text: String, oldMatch: MatchesBase, newMatch: MatchesBase){

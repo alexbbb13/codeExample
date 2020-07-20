@@ -1,6 +1,6 @@
 package com.ftb.test.pokemon.di.app
 
-import com.ftb.test.pokemon.data.remotestorage.MatchesApi
+import com.ftb.test.pokemon.data.remotestorage.PokemonsApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -14,15 +14,15 @@ class RetrofitModule {
 
     @Provides
     @ApplicationScope
-    fun getApiInterface(retroFit: Retrofit): MatchesApi {
-        return retroFit.create(MatchesApi::class.java)
+    fun getApiInterface(retroFit: Retrofit): PokemonsApi {
+        return retroFit.create(PokemonsApi::class.java)
     }
 
     @Provides
     @ApplicationScope
     fun getRetrofit(okHttpClient: OkHttpClient): Retrofit  {
         return Retrofit.Builder()
-                .baseUrl("https://swapi.co/api/")
+                .baseUrl("https://pokeapi.co/api/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
