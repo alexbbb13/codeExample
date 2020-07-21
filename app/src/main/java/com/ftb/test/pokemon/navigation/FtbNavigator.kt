@@ -24,7 +24,7 @@ class FtbNavigator(val manager: FragmentManager, private val containerId: Int): 
     override fun createFragment(screenKey: String?, data: Any?): Fragment {
         return when (screenKey) {
             MATCHES -> MatchesFragment()
-            RESULTS -> ResultsFragment()
+            RESULTS -> ResultsFragment.getInstance(data as Int)
             else -> {
                 throw RuntimeException("Key $screenKey is not valid")
             }

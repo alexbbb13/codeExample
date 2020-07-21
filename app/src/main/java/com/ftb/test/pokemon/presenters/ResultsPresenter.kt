@@ -3,7 +3,9 @@ package com.ftb.test.pokemon.presenters
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.ftb.test.pokemon.application.FtbApplication
+import com.ftb.test.pokemon.data.models.PokemonBase
 import com.ftb.test.pokemon.data.models.ResultBase
+import com.ftb.test.pokemon.interactors.PokemonsInteractor
 import com.ftb.test.pokemon.interactors.ResultsInteractor
 import com.ftb.test.pokemon.navigation.FtbNavigator
 import com.ftb.test.pokemon.ui.results.ResultsView
@@ -11,55 +13,32 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 @InjectViewState
-class ResultsPresenter constructor(val interactor: ResultsInteractor) : MvpPresenter<ResultsView>() {
+class ResultsPresenter constructor(val interactor: PokemonsInteractor) : MvpPresenter<ResultsView>() {
 
-    var cachedData :List <ResultBase>? = null;
+    var id: Int = 1
 
     override fun attachView(view: ResultsView?) {
         super.attachView(view)
-        interactor.getResults()
+        interactor.getPokemonsForId(id)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::onComplete, this::onError)
     }
 
-    private fun onComplete(data: List <ResultBase>){
-        if (cachedData == null) cachedData = data;
-        store(data)
-        update(data)
-        viewState.setData(cachedData!!)
+    private fun onComplete(data: PokemonBase){
+        viewState.setData(data)
     }
 
     private fun onError(t: Throwable){
         t.printStackTrace()
     }
 
-    private fun store(data: List<ResultBase>) {
-        interactor.updateData(data)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({})
-    }
-
     fun returnButtonClicked() {
         FtbApplication.INSTANCE.getRouter().replaceScreen(FtbNavigator.MATCHES)
     }
 
-    fun update(data: List <ResultBase>){
-        data.forEach {
-            updateCache(it)
-        }
-    }
-
-    private fun updateCache(item: ResultBase){
-        cachedData!!.forEach {
-            if (it.matchHash == item.matchHash) {
-                if (it.team1_prediction == null) it.team1_prediction = item.team1_prediction
-                if (it.team2_prediction == null) it.team2_prediction = item.team2_prediction
-                if (it.team1_prediction != item.team1_prediction && item.team1_prediction != -1 && item.team1_prediction != null) it.team1_prediction = item.team1_prediction
-                if (it.team2_prediction != item.team2_prediction && item.team2_prediction != -1 && item.team2_prediction != null) it.team2_prediction = item.team2_prediction
-            }
-        }
+    fun setArgs(id: Int) {
+        this.id = id
     }
 
 

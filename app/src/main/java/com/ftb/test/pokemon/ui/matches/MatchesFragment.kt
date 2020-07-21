@@ -61,20 +61,19 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
 
                 val linearLayoutManager = recyclerView!!.layoutManager as LinearLayoutManager
                 presenter.loadMore(linearLayoutManager.findLastCompletelyVisibleItemPosition())
-
-            }
+          }
         })
         return root
     }
 
     override fun setData(items: List<PokemonBase>) {
         adapter.setData(items)
+        adapter.notifyDataSetChanged()
     }
 
     override fun notifyDataSetChanged() {
         adapter.notifyDataSetChanged()
     }
-
 
     override fun beginMatchSelection(team1: String, team2: String, team1_prediction: Int?, team2_prediction: Int?) {
         val dialog = TwoButtonDialogFragment.newInstance(TwoButtonDialogFragment.Arguments(team1, team2, team1_prediction, team2_prediction))
@@ -83,7 +82,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
     }
 
     override fun onDialogChoiceClick(choice: Int, team1Name:String, team2Name: String, team1Score: Int, team2Score: Int) {
-        presenter.onDialogChoiceClick(choice, team1Name, team2Name, team1Score, team2Score)
+
     }
 
     override fun switchResultsButton(predictionsExist: Boolean) {
@@ -92,7 +91,6 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
 
     override fun notifyItemInserted(scrollPosition: Int) {
         recyclerView.post({ adapter.notifyItemInserted(scrollPosition) })
-        //adapter.notifyItemInserted(scrollPosition)
     }
 
     override fun notifyItemRemoved(scrollPosition: Int) {
@@ -101,11 +99,9 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
 
     override fun notifyItemRangeInserted(positionStart: Int, itemCount: Int) {
         recyclerView.post({ adapter.notifyItemRangeInserted(positionStart,itemCount) })
-        //adapter.notifyItemRangeInserted(positionStart,itemCount)
     }
 
     override fun notifyItemRangeChanged(positionStart: Int, itemCount: Int) {
         recyclerView.post({ adapter.notifyItemRangeChanged(positionStart,itemCount) })
-        //adapter.notifyItemRangeChanged(positionStart,itemCount)
     }
 }

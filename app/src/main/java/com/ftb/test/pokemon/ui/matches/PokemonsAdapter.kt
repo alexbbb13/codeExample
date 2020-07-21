@@ -11,6 +11,9 @@ import com.ftb.test.pokemon.data.models.PokemonBase
 import com.ftb.test.pokemon.data.models.PokemonBaseLoading
 import com.squareup.picasso.Picasso
 
+
+
+
 class PokemonsAdapter(val listener: (PokemonBase) -> Unit, val picasso: Picasso) :
         RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -27,6 +30,11 @@ class PokemonsAdapter(val listener: (PokemonBase) -> Unit, val picasso: Picasso)
 
         fun bind(item: PokemonBase, listener: (PokemonBase) -> Unit) {
             itemView.setOnClickListener { _ ->listener(item) }
+        }
+
+        fun cleanup(picasso: Picasso) {
+            picasso.cancelRequest(image)
+            image.setImageDrawable(null)
         }
     }
 
@@ -60,13 +68,18 @@ class PokemonsAdapter(val listener: (PokemonBase) -> Unit, val picasso: Picasso)
             is PokemonViewHolder -> {
                 val item  = myDataset[position]
                 holder.name.text = item.name
-                if (item.pictureUrl.isNullOrEmpty().not()) picasso.load(item.pictureUrl).into(holder.image)
+                if (item.pictureUrl.isNullOrEmpty().not()) {
+                    picasso.load(item.pictureUrl).fit().into(holder.image)
+                }
                 holder.bind(item, listener);
             }
             is LoadingViewHolder -> {
-
+                //Do nothing
             }
         }
+    }
+    override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+        if(holder is PokemonViewHolder) holder.cleanup(picasso)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -77,7 +90,6 @@ class PokemonsAdapter(val listener: (PokemonBase) -> Unit, val picasso: Picasso)
 
     fun setData (data: List<PokemonBase>){
         myDataset = data
-        //notifyDataSetChanged()
     }
 
 //    fun setData (data: List<MatchesBase>) {

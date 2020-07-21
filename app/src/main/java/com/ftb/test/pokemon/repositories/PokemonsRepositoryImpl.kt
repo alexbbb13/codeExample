@@ -39,6 +39,10 @@ private fun gatherPokemons(shortList: List<PokemonShortNetworkDao>): Observable<
         .concatWith(Observable.merge(observables).map { pNd -> dtoToData(pNd)}.toList())
 }
 
+    override fun getPokemonFromNetwork(id: Int): Observable<PokemonBase> {
+        return remoteStorage.getPokemonForId(id).map { dtoToData(it) }
+    }
+
     private fun dtoToData(dao: PokemonFullNetworkDao): PokemonBase {
         var attack = 0
         dao.stats.forEach { if (it.stat.name == "attack") attack = it.base_stat }

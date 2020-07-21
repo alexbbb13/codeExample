@@ -18,7 +18,7 @@ class MatchesScreenModule {
     fun provideMatchesPresenter(interactor: PokemonsInteractor, cicerone: Cicerone<AppRouter>) = MatchesPresenter(interactor, cicerone)
 
     @Provides
-    fun provideMatchesInteractor(repositoryPokemons: PokemonsRepository, repositoryPredictions: PredictionsRepository, networkLimiter: NetworkLimiter)  : PokemonsInteractor
-            = PokemonsInteractorImpl(repositoryPokemons, repositoryPredictions, networkLimiter)
+    fun provideMatchesInteractor(repositoryPokemons: PokemonsRepository)  : PokemonsInteractor
+            = PokemonsInteractorImpl(repositoryPokemons)
 
 }

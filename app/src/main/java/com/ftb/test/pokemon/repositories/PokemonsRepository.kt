@@ -11,4 +11,5 @@ interface PokemonsRepository {
     fun getPokemonsFromDb(from: Int, to: Int): Maybe<List<PokemonBase>>
     fun savePokemonsToToDb(matches: List<PokemonBase>): Completable
     fun getPokemonsFromNetwork(offset: Int, limit: Int): Observable<List<PokemonBase>>
+    fun getPokemonFromNetwork(id: Int): Observable<PokemonBase>
 }

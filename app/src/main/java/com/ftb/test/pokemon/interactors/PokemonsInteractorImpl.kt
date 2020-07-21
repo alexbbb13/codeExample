@@ -1,5 +1,6 @@
 package com.ftb.test.pokemon.interactors
 
+import android.util.Log
 import com.ftb.test.pokemon.data.limiter.NetworkLimiter
 import com.ftb.test.pokemon.data.models.PokemonBase
 import com.ftb.test.pokemon.data.models.PredictionBase
@@ -7,39 +8,54 @@ import com.ftb.test.pokemon.repositories.PokemonsRepository
 import com.ftb.test.pokemon.repositories.PredictionsRepository
 import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.schedulers.Schedulers
 
-class PokemonsInteractorImpl(val repositoryPokemons: PokemonsRepository,
-                             val repositoryPredictions: PredictionsRepository,
-                             val networkLimiter: NetworkLimiter) : PokemonsInteractor {
+class PokemonsInteractorImpl(val repositoryPokemons: PokemonsRepository) : PokemonsInteractor {
 
-    var currentOffset = 1
-    var currentLimit = 30
+    val PAGE_SIZE = 30
+    var currentOffset = 0
+    var currentLimit = PAGE_SIZE
+
 
     override fun getPokemons(): Observable<List<PokemonBase>> {
-        return repositoryPokemons.getPokemonsFromDb(currentOffset, currentLimit).toObservable()
+        return repositoryPokemons.getPokemonsFromDb(currentOffset+1, currentOffset+currentLimit).toObservable()
             .switchMap {
-                if(it.size>3) {
+                if(it.size == PAGE_SIZE) {
+                    val start = currentOffset+1
+                    val stop = currentOffset+currentLimit
+                    val size = it.size
+                    Log.w("doxxxtor", "Full page: got $size pokemons from db, ids from {$start} to {$stop}")
                     currentOffset += currentLimit
                     Observable.just(it)
                 } else {
+                    val start = currentOffset+1
+                    val stop = currentOffset+currentLimit
+                    val size = it.size
+                    Log.w("doxxxtor", "***SHORT page: got $size pokemons from network, ids from {$start} to {$stop}")
+                    currentOffset += currentLimit
+                    //Observable.just(it)
                     repositoryPokemons.getPokemonsFromNetwork(currentOffset, currentLimit)
-                        .doOnNext {
-                            currentOffset += currentLimit
+                        .switchMap{
+                            if(it.get(0).pictureUrl.isNullOrEmpty().not()) {
+                                currentOffset += currentLimit
+                                repositoryPokemons.savePokemonsToToDb(it).andThen(Observable.just(it))
+                            } else {
+                                Observable.just(it)
+                            }
                         }
                 }
             }
-//        if (networkLimiter.isMatchNetworkLimited()) {
-//            return repositoryPokemons.getPokemonsFromDb(1, 30).toObservable()
-//        } else {
-//            return repositoryPokemons.getPokemonsFromDb(1, 30).toObservable().concatWith(repositoryPokemons.getPokemonsFromNetwork(1, 30))
-//        }
     }
 
-    override fun updateData(pokemons: List<PokemonBase>): Completable {
-        return repositoryPokemons.savePokemonsToToDb(pokemons)
-    }
-
-    override fun updatePredictions(prediction: PredictionBase): Completable {
-        return repositoryPredictions.savePredictionsToDb(prediction)
+    override fun getPokemonsForId(id: Int): Observable<PokemonBase> {
+        return repositoryPokemons.getPokemonsFromDb(id, id).toObservable()
+            .switchMap { list ->
+                when(list.size) {
+                    0 -> repositoryPokemons.getPokemonFromNetwork(id).flatMap {
+                        repositoryPokemons.savePokemonsToToDb(arrayListOf(it)).andThen(Observable.just(it))
+                        }
+                    else -> Observable.just(list[0])
+                }
+            }.subscribeOn(Schedulers.io())
     }
 }
