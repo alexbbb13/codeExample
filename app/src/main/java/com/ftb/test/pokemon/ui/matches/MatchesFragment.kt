@@ -51,7 +51,7 @@ class MatchesFragment: BaseFragment(), MatchesView, TwoButtonDialogFragment.OnDi
         val root = inflater.inflate(R.layout.fragment_pokemon_list, container, false)
         recyclerView = root.findViewById<RecyclerView>(R.id.recycler_view)
         resultsButton = root.findViewById<Button>(R.id.bt_results)
-        resultsButton.setOnClickListener { presenter.resultsButtonClicked()}
+        resultsButton.setOnClickListener { presenter.updateButtonClicked()}
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {

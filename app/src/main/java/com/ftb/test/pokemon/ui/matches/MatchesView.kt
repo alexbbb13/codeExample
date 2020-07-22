@@ -24,6 +24,9 @@ interface MatchesView : MvpView {
     @StateStrategyType(SkipStrategy::class)
     fun notifyItemRangeInserted(positionStart: Int, itemCount: Int)
 
+    @StateStrategyType(SkipStrategy::class)
     fun notifyDataSetChanged()
+
+    @StateStrategyType(SkipStrategy::class)
     fun notifyItemRangeChanged(positionStart: Int, itemCount: Int)
 }

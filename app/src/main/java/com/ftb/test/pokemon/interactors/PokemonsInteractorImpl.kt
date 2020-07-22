@@ -17,24 +17,24 @@ class PokemonsInteractorImpl(val repositoryPokemons: PokemonsRepository) : Pokem
     var currentLimit = PAGE_SIZE
 
 
-    override fun getPokemons(): Observable<List<PokemonBase>> {
-        return repositoryPokemons.getPokemonsFromDb(currentOffset+1, currentOffset+currentLimit).toObservable()
+    override fun getPokemons(startPos: Int): Observable<List<PokemonBase>> {
+        return repositoryPokemons.getPokemonsFromDb(startPos+currentOffset+1, startPos+currentOffset+currentLimit).toObservable()
             .switchMap {
-                if(it.size == PAGE_SIZE) {
-                    val start = currentOffset+1
-                    val stop = currentOffset+currentLimit
+                if(it.size==PAGE_SIZE) {
+                    val start = startPos+ currentOffset+1
+                    val stop = startPos+currentOffset+currentLimit
                     val size = it.size
                     Log.w("doxxxtor", "Full page: got $size pokemons from db, ids from {$start} to {$stop}")
                     currentOffset += currentLimit
                     Observable.just(it)
                 } else {
-                    val start = currentOffset+1
-                    val stop = currentOffset+currentLimit
+                    val start = startPos+currentOffset+1
+                    val stop = startPos+currentOffset+currentLimit
                     val size = it.size
                     Log.w("doxxxtor", "***SHORT page: got $size pokemons from network, ids from {$start} to {$stop}")
                     currentOffset += currentLimit
                     //Observable.just(it)
-                    repositoryPokemons.getPokemonsFromNetwork(currentOffset, currentLimit)
+                    repositoryPokemons.getPokemonsFromNetwork(startPos+currentOffset, currentLimit)
                         .switchMap{
                             if(it.get(0).pictureUrl.isNullOrEmpty().not()) {
                                 currentOffset += currentLimit
@@ -48,7 +48,7 @@ class PokemonsInteractorImpl(val repositoryPokemons: PokemonsRepository) : Pokem
     }
 
     override fun getPokemonsForId(id: Int): Observable<PokemonBase> {
-        return repositoryPokemons.getPokemonsFromDb(id, id).toObservable()
+        return repositoryPokemons.getPokemonsFromDb(id, id+1).toObservable()
             .switchMap { list ->
                 when(list.size) {
                     0 -> repositoryPokemons.getPokemonFromNetwork(id).flatMap {
