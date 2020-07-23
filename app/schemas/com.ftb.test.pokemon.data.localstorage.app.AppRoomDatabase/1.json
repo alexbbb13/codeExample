@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "5652dfcd444533cb9d3a73e8d9e480e2",
+    "identityHash": "525073e88cfa5941c168715632d1976b",
     "entities": [
       {
-        "tableName": "MatchesBase",
+        "tableName": "PokemonsBase",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `pictureUrl` TEXT NOT NULL, `type` TEXT NOT NULL, `height` INTEGER NOT NULL, `weight` INTEGER NOT NULL, `attack` INTEGER NOT NULL, `defence` INTEGER NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
@@ -157,7 +157,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"5652dfcd444533cb9d3a73e8d9e480e2\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"525073e88cfa5941c168715632d1976b\")"
     ]
   }
 }

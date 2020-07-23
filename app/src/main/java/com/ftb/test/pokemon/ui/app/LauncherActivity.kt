@@ -36,7 +36,6 @@ class LauncherActivity : DaggerAppCompatActivity() {
     private val navigator by lazy(LazyThreadSafetyMode.NONE) { FtbNavigator(supportFragmentManager, FRAGMENT_CONTAINER_ID) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //AndroidInjection.inject(this) //before calling super!!!!!!!!!!!!!
         super.onCreate(savedInstanceState)
         navigatorHolder.setNavigator(navigator)
         setContentView(R.layout.activity_fragment_container)
@@ -46,16 +45,12 @@ class LauncherActivity : DaggerAppCompatActivity() {
     }
 
     protected fun initiateFragment() {
-        router.newRootScreen(FtbNavigator.MATCHES, null)
+        router.newRootScreen(FtbNavigator.ALL_POKEMONS, null)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         navigatorHolder.removeNavigator()
-    }
-
-    override fun onBackPressed() {
-        router.exit()
     }
 
     override fun onResumeFragments() {

@@ -4,9 +4,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.ftb.test.pokemon.application.FtbApplication
 import com.ftb.test.pokemon.data.models.PokemonBase
-import com.ftb.test.pokemon.data.models.ResultBase
 import com.ftb.test.pokemon.interactors.PokemonsInteractor
-import com.ftb.test.pokemon.interactors.ResultsInteractor
 import com.ftb.test.pokemon.navigation.FtbNavigator
 import com.ftb.test.pokemon.ui.results.ResultsView
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -34,7 +32,7 @@ class ResultsPresenter constructor(val interactor: PokemonsInteractor) : MvpPres
     }
 
     fun returnButtonClicked() {
-        FtbApplication.INSTANCE.getRouter().replaceScreen(FtbNavigator.MATCHES)
+        FtbApplication.INSTANCE.getRouter().replaceScreen(FtbNavigator.ALL_POKEMONS)
     }
 
     fun setArgs(id: Int) {

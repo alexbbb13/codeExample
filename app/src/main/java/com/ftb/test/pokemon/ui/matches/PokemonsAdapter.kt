@@ -33,7 +33,7 @@ class PokemonsAdapter(val listener: (PokemonBase) -> Unit, val picasso: Picasso)
         }
 
         fun cleanup(picasso: Picasso) {
-            picasso.cancelRequest(image)
+            //picasso.cancelRequest(image)
             image.setImageDrawable(null)
         }
     }

@@ -12,7 +12,7 @@ class PokemonsLocalStorageImpl(
 ) : PokemonsLocalStorage {
 
     override fun getPokemons(from: Int, to:Int): Maybe<List<PokemonBase>> {
-                return db.map(AppRoomDatabase::getMatchesDao)
+                return db.map(AppRoomDatabase::getPokemonsDao)
                 .flatMapMaybe { it.getPokemons(from, to) }
                     .map { it.map { dbToData(it) } }
     }
@@ -31,7 +31,7 @@ class PokemonsLocalStorageImpl(
     }
 
     override fun replacePokemons(pokemons: List<PokemonBase>): Completable {
-        return db.map(AppRoomDatabase::getMatchesDao)
-                .flatMapCompletable { Completable.fromAction { it.replaceBaseMatchess(pokemons.map { PokemonBaseDb(it) }) } }
+        return db.map(AppRoomDatabase::getPokemonsDao)
+                .flatMapCompletable { Completable.fromAction { it.replacePokemons(pokemons.map { PokemonBaseDb(it) }) } }
     }
 }
