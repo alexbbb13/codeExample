@@ -66,7 +66,7 @@ class PokemonsFragment: BaseFragment(), PokemonsView {
 
     override fun setData(items: List<PokemonBase>) {
         adapter.setData(items)
-        adapter.notifyDataSetChanged()
+        //adapter.notifyDataSetChanged()
     }
 
     override fun notifyItemInserted(scrollPosition: Int) {

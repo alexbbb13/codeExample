@@ -47,7 +47,13 @@ class PokemonsPresenter constructor(val interactor: PokemonsInteractor, val cice
         if(cachedData.isEmpty()) {
             cachedData.addAll(data)
         }
-        viewState.setData(cachedData)
+        if(updateCacheAddedNew(data)) {
+            viewState.setData(cachedData)
+            viewState.notifyItemRangeInserted(data[0].id - 1, data.size)
+        } else {
+            viewState.setData(cachedData)
+            viewState.notifyItemRangeChanged(data[0].id - 1, data.size)
+        }
     }
 
     private fun onMoreNewDataLoaded(data: List<PokemonBase>) {
@@ -55,8 +61,13 @@ class PokemonsPresenter constructor(val interactor: PokemonsInteractor, val cice
         if (isLoading) {
             isLoading = false;
         }
-        updateCacheAddedNew(data)
-        viewState.setData(cachedData)
+       if(updateCacheAddedNew(data)) {
+           viewState.setData(cachedData)
+           viewState.notifyItemRangeInserted(data[0].id - 1, data.size)
+       } else {
+           viewState.setData(cachedData)
+           viewState.notifyItemRangeChanged(data[0].id - 1, data.size)
+       }
     }
 
     fun selectedMatch(item: PokemonBase) {

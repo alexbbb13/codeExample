@@ -56,7 +56,7 @@ private fun gatherPokemons(shortList: List<PokemonShortNetworkDao>): Observable<
         var attack = 0
         dao.stats.forEach { if (it.stat.name == "attack") attack = it.base_stat }
         var defence = 0
-        dao.stats.forEach { if (it.stat.name == "defence") defence=it.base_stat }
+        dao.stats.forEach { if (it.stat.name == "defense") defence=it.base_stat }
         return PokemonBase(
             dao.id,
             dao.name,
