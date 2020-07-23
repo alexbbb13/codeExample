@@ -25,9 +25,18 @@ class PokemonsRepositoryImpl(
 
     override fun getPokemonsFromNetwork(offset: Int, limit: Int): Observable<List<PokemonBase>> {
         //The API should have pokemon ids in the list, but it does not -> getting ids from url
+        //The delays on the main screens are due to the fact, that display of 30 pokemons without pictures requires 1 network call,
+        // but adding pictures (and other data) requires 30 network calls x 200Kb each. Consequently, it turns out to be slooooow(poke)
         return remoteStorage.getPokemonsList(offset, limit)
             .flatMap { res -> gatherPokemons(res.results)}
         }
+
+    override fun getShortPokemonListFromNetwork(offset: Int, limit: Int): Observable<List<PokemonBase>> {
+        //The API should have pokemon ids in the list, but it does not -> getting ids from url
+        //The delays on the main screens are due to the fact, that display of 30 pokemons without pictures requires 1 network call,
+        // but adding pictures (and other data) requires 30 network calls x 200Kb each. Consequently, it turns out to be slooooow(poke)
+        return remoteStorage.getPokemonsList(offset, limit).map { pNd -> pNd.results.map{item -> dtoToData(item)}}
+    }
 
 
 private fun gatherPokemons(shortList: List<PokemonShortNetworkDao>): Observable<List<PokemonBase>> {
@@ -61,6 +70,8 @@ private fun gatherPokemons(shortList: List<PokemonShortNetworkDao>): Observable<
     }
 
     private fun dtoToData(pnd: PokemonShortNetworkDao): PokemonBase {
+        //Almost empty pokemon (name only) from net
+
         return PokemonBase(
             getPokemonIdFromUrl(pnd.url),
             pnd.name,

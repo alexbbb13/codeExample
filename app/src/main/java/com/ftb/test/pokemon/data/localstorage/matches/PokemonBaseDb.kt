@@ -6,7 +6,7 @@ import com.ftb.test.pokemon.data.models.MatchesBase
 import com.ftb.test.pokemon.data.models.PokemonBase
 import com.ftb.test.pokemon.data.models.network.MatchNetworkDao
 
-@Entity(tableName = "MatchesBase", primaryKeys = ["id"])
+@Entity(tableName = "PokemonsBase", primaryKeys = ["id"])
 data class PokemonBaseDb(
     val id: Int,
     val name: String,

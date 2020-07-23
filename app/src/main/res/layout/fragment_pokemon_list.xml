@@ -28,6 +28,7 @@
         android:layout_centerVertical="true"
         android:background="@color/colorPrimary"
         android:textColor="@color/whiteText"
+        android:visibility="gone"
         android:text="Update"
         tools:text =  "Update"/>
     </RelativeLayout>

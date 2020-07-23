@@ -1,34 +1,26 @@
 package com.ftb.test.pokemon.presenters
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
 import com.ftb.test.pokemon.application.FtbApplication
 import com.ftb.test.pokemon.data.models.PokemonBase
-import com.ftb.test.pokemon.data.models.PokemonBaseLoading
-import com.ftb.test.pokemon.data.models.PredictionBase
 import com.ftb.test.pokemon.interactors.PokemonsInteractor
 import com.ftb.test.pokemon.navigation.AppRouter
 import com.ftb.test.pokemon.navigation.FtbNavigator
-import com.ftb.test.pokemon.ui.dialogs.TwoButtonDialogFragment
-import com.ftb.test.pokemon.ui.matches.MatchesView
-import com.ftb.test.pokemon.utils.BettingMath
-import com.google.gson.Gson
-import io.reactivex.Observable
+import com.ftb.test.pokemon.ui.matches.PokemonsView
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.terrakok.cicerone.Cicerone
-import java.util.*
 import kotlin.collections.ArrayList
 
 @InjectViewState
-class MatchesPresenter constructor(val interactor: PokemonsInteractor, val cicerone: Cicerone<AppRouter>) : MvpPresenter<MatchesView>() {
+class PokemonsPresenter constructor(val interactor: PokemonsInteractor, val cicerone: Cicerone<AppRouter>) : MvpPresenter<PokemonsView>() {
 
     var cachedData :ArrayList <PokemonBase> = arrayListOf()
     var startPos:Int = 0 //position in the pokemon list 0-xxxx
     var isLoading = false;
 
-    override fun attachView(view: MatchesView?) {
+    override fun attachView(view: PokemonsView?) {
         super.attachView(view)
         load()
     }
@@ -38,10 +30,6 @@ class MatchesPresenter constructor(val interactor: PokemonsInteractor, val cicer
     }
 
     private fun load() {
-//        Observable.range(0, 30).flatMap { interactor.getPokemonsForId(it) }
-//            .subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .subscribe(this::onPokemonLoaded, this::onError)
         interactor.getPokemons(startPos)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -56,7 +44,6 @@ class MatchesPresenter constructor(val interactor: PokemonsInteractor, val cicer
     }
 
     private fun onNewDataLoaded(data: List<PokemonBase>) {
-        viewState.switchResultsButton(true)
         if(cachedData.isEmpty()) {
             cachedData.addAll(data)
         }
@@ -64,7 +51,6 @@ class MatchesPresenter constructor(val interactor: PokemonsInteractor, val cicer
     }
 
     private fun onMoreNewDataLoaded(data: List<PokemonBase>) {
-        viewState.switchResultsButton(true)
         //Caching latest loaded
         if (isLoading) {
             isLoading = false;
@@ -73,24 +59,12 @@ class MatchesPresenter constructor(val interactor: PokemonsInteractor, val cicer
         viewState.setData(cachedData)
     }
 
-    private fun onPokemonLoaded(data: PokemonBase) {
-        viewState.switchResultsButton(true)
-        cachedData[data.id] = data
-        //Caching latest loaded
-        if (isLoading) {
-            isLoading = false;
-        }
-        cachedData[data.id-1]=data
-        //updateCacheAddedNew(cachedData)
-        viewState.setData(cachedData)
-    }
-
     fun selectedMatch(item: PokemonBase) {
-        FtbApplication.INSTANCE.getRouter().navigateTo(FtbNavigator.RESULTS, item.id)
+        FtbApplication.INSTANCE.getRouter().navigateTo(FtbNavigator.POKEMON_DETAILS, item.id)
     }
 
     fun updateButtonClicked() {
-        startPos = 4
+        startPos = 0
         cachedData.clear()
         load();
     }
@@ -99,15 +73,17 @@ class MatchesPresenter constructor(val interactor: PokemonsInteractor, val cicer
         if (!isLoading) {
             if (findLastCompletelyVisibleItemPosition == cachedData.size - 1) {
                 //bottom of list!
-                loadMorePokemons()
+                loadMoreFromServer()
                 isLoading = true
             }
         }
     }
 
     fun updateCacheAddedNew(newData: List <PokemonBase>): Boolean{
-        if(newData[0].id >= cachedData.size+startPos) {
+        if(newData[0].id > cachedData.size) {
             //Insert
+            //either one item in list
+            //or a list of data
             cachedData.addAll(newData)
             return true
         } else {
@@ -115,9 +91,5 @@ class MatchesPresenter constructor(val interactor: PokemonsInteractor, val cicer
             newData.forEach { newPokemon -> cachedData[newPokemon.id - 1 - startPos] = newPokemon }
             return false
         }
-    }
-
-    private fun loadMorePokemons() {
-        loadMoreFromServer()
     }
 }

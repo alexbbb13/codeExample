@@ -7,4 +7,5 @@ import io.reactivex.Observable
 interface PokemonsInteractor {
     fun getPokemons(startPos: Int): Observable<List<PokemonBase>>
     fun getPokemonsForId(id: Int): Observable<PokemonBase>
+    fun getPokemonsOneByOne(startPos: Int): Observable<PokemonBase>
 }

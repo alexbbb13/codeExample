@@ -10,10 +10,7 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface PokemonsApi {
-    @GET("v2/5bbb29fa3100006200148e81")
-    fun loadMatches(@Query("offset") offset: Int, @Query("limit") limit: Int): Single<PokemonsListNetworkDao>
-
-    @GET("v2/pokemon")
+      @GET("v2/pokemon")
     fun getPokemons(@Query("offset") offset: Int, @Query("limit") limit: Int): Observable<PokemonsListNetworkDao>
 
     @GET("v2/pokemon/{id}")
